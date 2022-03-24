@@ -53,7 +53,7 @@ const HeaderStyle2 = () => {
                                     </div>
                                 </div>
                                 <div className="mobile-button" ref={btnToggle} onClick={menuToggle}><span></span></div>
-                                <div className="question-form">
+                                {/* <div className="question-form">
                                     <form action="#" method="get">
                                         <input type="text" placeholder="Type to search..." required />
                                         <button type="submit">
@@ -75,13 +75,13 @@ const HeaderStyle2 = () => {
                                                 </svg>
                                         </button>
                                     </form>
-                                </div>
+                                </div> */}
                                 <nav id="main-nav" className="main-nav" ref={menuLeft} >
                                     <ul id="menu-primary-menu" className="menu">
                                         {
                                             menus.map((data,index) => (
                                                 <li key={index} onClick={()=> handleOnClick(index)} className={`menu-item ${data.namesub ? 'menu-item-has-children' : '' } ${activeIndex === index ? 'active' : ''} ` }   >
-                                                    <Link to="#">{data.name}</Link>
+                                                    <Link to={data.links}>{data.name}</Link>
                                                     {
                                                         data.namesub &&
                                                         <ul className="sub-menu" >

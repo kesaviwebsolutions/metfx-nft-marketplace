@@ -1,25 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import Header from '../components/header/Header';
+import HeaderStyle2 from '../components/header/HeaderStyle2';
 import Footer from '../components/footer/Footer';
 
 const Contact02 = () => {
     return (
         <div>
-            <Header />
+            <HeaderStyle2/>
             <section className="flat-title-page inner">
                 <div className="overlay"></div>
                 <div className="themesflat-container">
                     <div className="row">
                         <div className="col-md-12">
                             <div className="page-title-heading mg-bt-12">
-                                <h1 className="heading text-center">Contact 2</h1>
+                                <h1 className="heading text-center">Contact Us</h1>
                             </div>
                             <div className="breadcrumbs style2">
                                 <ul>
                                     <li><Link to="/">Home</Link></li>
-                                    <li><Link to="#">Contact</Link></li>
-                                    <li>Contact 2</li>
+                                    <li>Contact Us</li>
                                 </ul>
                             </div>
                         </div>

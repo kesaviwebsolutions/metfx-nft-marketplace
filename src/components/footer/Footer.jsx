@@ -60,27 +60,23 @@ const Footer = () => {
     const socialList = [
         {
             icon: "fab fa-twitter",
-            link: "#"
+            link: "https://www.twitter.com/metfxmetaverse"
         },
         {
-            icon: "fab fa-facebook",
-            link: "#"
+            icon: "fab fa-instagram",
+            link: "https://www.instagram.com/MetFX.official/"
         },
         {
             icon: "fab fa-telegram-plane",
-            link: "#"
+            link: "https://t.me/MetFXWORLD"
         },
         {
             icon: "fab fa-youtube",
-            link: "#"
-        },
-        {
-            icon: "icon-fl-tik-tok-2",
-            link: "#"
+            link: "https://www.youtube.com/channel/UCmcIsm2necJGJB7uJDz_e0g"
         },
         {
             icon: "icon-fl-vt",
-            link: "#"
+            link: "https://discord.gg/smPPAKSmV4"
         },
         
 

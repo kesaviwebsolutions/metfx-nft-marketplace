@@ -1,11 +1,5 @@
-import Home01 from "./Home01";
-import Home02 from "./Home02";
-import Home03 from "./Home03";
-import Home04 from "./Home04";
-import Home05 from "./Home05";
-import Home06 from "./Home06";
+// import Home06 from "./Home06";
 import Home07 from "./Home07";
-import Home08 from "./Home08";
 import Explore01 from "./Explore01";
 import Explore02 from "./Explore02";
 import Explore03 from "./Explore03";
@@ -28,19 +22,13 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import NoResult from "./NoResult";
 import FAQ from "./FAQ";
-import Contact01 from "./Contact01";
 import Contact02 from "./Contact02";
 
 
 const routes = [
-  { path: '/', component: <Home01 />},
-  { path: '/home-02', component: <Home02 />},
-  { path: '/home-03', component: <Home03 />},
-  { path: '/home-04', component: <Home04 />},
-  { path: '/home-05', component: <Home05 />},
-  { path: '/home-06', component: <Home06 />},
-  { path: '/home-07', component: <Home07 />},
-  { path: '/home-08', component: <Home08 />},
+  // { path: '/home-06', component: <Home06 />},
+
+  { path: '/', component: <Home07 />},
   { path: '/explore-01', component: <Explore01 />},
   { path: '/explore-02', component: <Explore02 />},
   { path: '/explore-03', component: <Explore03 />},
@@ -63,8 +51,8 @@ const routes = [
   { path: '/sign-up', component: <SignUp />},
   { path: '/no-result', component: <NoResult />},
   { path: '/faq', component: <FAQ />},
-  { path: '/contact-01', component: <Contact01 />},
-  { path: '/contact-02', component: <Contact02 />},
+
+  { path: '/contact', component: <Contact02 />},
 ]
 
 export default routes;
