@@ -32,7 +32,6 @@ const HeaderStyle2 = () => {
         btnToggle.current.classList.toggle('active');
     }
 
-
     const [activeIndex, setActiveIndex] = useState(null);
     const handleOnClick = index => {
         setActiveIndex(index); 
@@ -81,7 +80,7 @@ const HeaderStyle2 = () => {
                                         {
                                             menus.map((data,index) => (
                                                 <li key={index} onClick={()=> handleOnClick(index)} className={`menu-item ${data.namesub ? 'menu-item-has-children' : '' } ${activeIndex === index ? 'active' : ''} ` }   >
-                                                    <Link to={data.links}>{data.name}</Link>
+                                                    {data.links.includes("https://") === true ? <a href={data.links} target="_blank" rel="noreferrer">{data.name}</a> : <Link to={data.links}>{data.name}</Link> }
                                                     {
                                                         data.namesub &&
                                                         <ul className="sub-menu" >

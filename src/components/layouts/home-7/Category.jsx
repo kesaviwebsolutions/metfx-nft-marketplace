@@ -9,27 +9,23 @@ import 'swiper/scss/pagination';
 import img1 from '../../../assets/images/box-item/img_category1.jpg'
 import img2 from '../../../assets/images/box-item/img_category2.jpg'
 import img3 from '../../../assets/images/box-item/img_category3.jpg'
-import img4 from '../../../assets/images/box-item/img_category4.jpg'
+// import img4 from '../../../assets/images/box-item/img_category4.jpg'
 import img5 from '../../../assets/images/box-item/img_category5.jpg'
 import img6 from '../../../assets/images/box-item/img_category6.jpg'
 
 const Category = () => {
     const [data] = useState([
         {
-            title: 'Digital Art',
+            title: 'Collection 1',
             img: img1
         },
         {
-            title: 'Style',
+            title: 'Collection 2',
             img: img2
         },
         {
-            title: 'Music',
+            title: 'Land',
             img: img3
-        },
-        {
-            title: 'Domain Name',
-            img: img4
         },
         {
             title: 'Sports',
@@ -51,23 +47,11 @@ const Category = () => {
             title: 'Music',
             img: img3
         },
-        {
-            title: 'Domain Name',
-            img: img4
-        },
-        {
-            title: 'Sports',
-            img: img5
-        },
-        {
-            title: 'Utilities',
-            img: img6
-        }
     ])
     return (
-        <section className="tf-section category">
+        <section className="tf-section pt-5 category">
         <div className="themesflat-container">
-            <div className="row">
+            <div className="row my-5">
                 <div className="col-md-12">
                     <div className="heading-live-auctions">
                         <h2 className="tf-title pb-39">All Catergories</h2>

@@ -216,7 +216,7 @@ const TodayPicks = () => {
         ]
     )
 
-    const [visible , setVisible] = useState(10);
+    const [visible , setVisible] = useState(5);
     const showMoreItems = () => {
         setVisible((prevValue) => prevValue + 5);
     }

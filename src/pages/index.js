@@ -1,8 +1,4 @@
-// import Home06 from "./Home06";
 import Home07 from "./Home07";
-import Explore01 from "./Explore01";
-import Explore02 from "./Explore02";
-import Explore03 from "./Explore03";
 import Explore04 from "./Explore04";
 import LiveAuctions from "./LiveAuctions";
 import ItemDetails01 from "./ItemDetails01";
@@ -29,10 +25,7 @@ const routes = [
   // { path: '/home-06', component: <Home06 />},
 
   { path: '/', component: <Home07 />},
-  { path: '/explore-01', component: <Explore01 />},
-  { path: '/explore-02', component: <Explore02 />},
-  { path: '/explore-03', component: <Explore03 />},
-  { path: '/explore-04', component: <Explore04 />},
+  { path: '/marketplace', component: <Explore04 />},
   { path: '/live-auctions', component: <LiveAuctions />},
   { path: '/item-details-01', component: <ItemDetails01 />},
   { path: '/item-details-02', component: <ItemDetails02 />},
