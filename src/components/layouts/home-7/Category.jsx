@@ -7,11 +7,11 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 import img1 from '../../../assets/images/box-item/img_category1.jpg'
-import img2 from '../../../assets/images/box-item/img_category2.jpg'
-import img3 from '../../../assets/images/box-item/img_category3.jpg'
+// import img2 from '../../../assets/images/box-item/img_category2.jpg'
+// import img3 from '../../../assets/images/box-item/img_category3.jpg'
 // import img4 from '../../../assets/images/box-item/img_category4.jpg'
-import img5 from '../../../assets/images/box-item/img_category5.jpg'
-import img6 from '../../../assets/images/box-item/img_category6.jpg'
+// import img5 from '../../../assets/images/box-item/img_category5.jpg'
+// import img6 from '../../../assets/images/box-item/img_category6.jpg'
 
 const Category = () => {
     const [data] = useState([
@@ -21,19 +21,19 @@ const Category = () => {
         },
         {
             title: 'Collection 2',
-            img: img2
+            img: img1
         },
         {
             title: 'Land',
-            img: img3
+            img: img1
         },
         {
             title: 'Sports',
-            img: img5
+            img: img1
         },
         {
             title: 'Utilities',
-            img: img6
+            img: img1
         },
         {
             title: 'Digital Art',
@@ -41,11 +41,11 @@ const Category = () => {
         },
         {
             title: 'Style',
-            img: img2
+            img: img1
         },
         {
             title: 'Music',
-            img: img3
+            img: img1
         },
     ])
     return (

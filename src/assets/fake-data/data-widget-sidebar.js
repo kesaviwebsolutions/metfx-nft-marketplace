@@ -1,20 +1,20 @@
 const widgetSidebarData = [
-    {
-        id: 1,
-        title: "Status",
-        content : [
-            {
-                field: 'Buy Now',
-                checked: 'checked'
-            },
-            {
-                field: 'On Auctions'
-            },
-            {
-                field: 'Has Offers'
-            },
-        ]
-    },
+    // {
+    //     id: 1,
+    //     title: "Status",
+    //     content : [
+    //         {
+    //             field: 'Buy Now',
+    //             checked: 'checked'
+    //         },
+    //         {
+    //             field: 'On Auctions'
+    //         },
+    //         {
+    //             field: 'Has Offers'
+    //         },
+    //     ]
+    // },
     {
         id: 2,
         title: "Categories",
@@ -26,18 +26,7 @@ const widgetSidebarData = [
                 field: 'Music'
             },
             {
-                field: 'Domain Names',
-                checked: 'checked'
-            },
-            {
                 field: 'Virtual Worlds'
-            },
-            {
-                field: 'Trading  Cards'
-            },
-            {
-                field: 'Collectibles',
-                checked: 'checked'
             },
             {
                 field: 'Sports'
@@ -58,7 +47,7 @@ const widgetSidebarData = [
                 field: 'Polygon'
             },
             {
-                field: 'Klaytn'
+                field: 'BSC'
             },
         ]
     },
@@ -67,22 +56,13 @@ const widgetSidebarData = [
         title: "Collections",
         content : [
             {
-                field: 'Abstraction'
+                field: 'Collection 1'
             },
             {
-                field: 'Patternlicious'
+                field: 'Collection 2'
             },
             {
-                field: 'Skecthify'
-            },
-            {
-                field: 'Cartoonism'
-            },
-            {
-                field: 'Virtuland'
-            },
-            {
-                field: 'Papercut'
+                field: 'Land'
             },
         ]
     },

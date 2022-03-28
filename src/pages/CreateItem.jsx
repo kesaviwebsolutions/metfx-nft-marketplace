@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/header/Header';
+import HeaderStyle2 from '../components/header/HeaderStyle2';
 import Footer from '../components/footer/Footer';
 import Countdown from "react-countdown";
 import { Tab, Tabs, TabList, TabPanel  } from 'react-tabs';
@@ -11,7 +11,7 @@ import avt from '../assets/images/avatar/avt-9.jpg'
 const CreateItem = () => {
     return (
         <div className='create-item'>
-            <Header />
+            <HeaderStyle2 />
             <section className="flat-title-page inner">
                 <div className="overlay"></div>
                 <div className="themesflat-container">
