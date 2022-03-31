@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/header/Header';
+import HeaderStyle2 from '../components/header/HeaderStyle2';
 import Footer from '../components/footer/Footer';
 import img1 from '../assets/images/icon/icon-1.png'
 import img2 from '../assets/images/icon/icon-2.png'
@@ -49,7 +49,7 @@ const HelpCenter = () => {
     )
     return (
         <div>
-            <Header />
+            <HeaderStyle2 />
             <section className="flat-title-page inner">
                 <div className="overlay"></div>
                 <div className="themesflat-container">
@@ -61,7 +61,6 @@ const HelpCenter = () => {
                             <div className="breadcrumbs style2">
                                 <ul>
                                     <li><Link to="/">Home</Link></li>
-                                    <li><Link to="#">Community</Link></li>
                                     <li>Help Center</li>
                                 </ul>
                             </div>
@@ -112,7 +111,7 @@ const HelpCenter = () => {
                                         <img src={item.icon} alt="Axies" />
                                     </div>
                                 </div>
-                                <h4 className="heading"><Link to="/contact-01">{item.title}</Link> </h4>
+                                <h4 className="heading"><Link to="/contact">{item.title}</Link> </h4>
                                 <p className="content">{item.description}</p>
                             </div>
                             ))

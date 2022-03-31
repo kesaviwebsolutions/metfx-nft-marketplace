@@ -1,6 +1,6 @@
 import React , { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/header/Header';
+import HeaderStyle2 from '../components/header/HeaderStyle2';
 import Footer from '../components/footer/Footer';
 
 import img1 from '../assets/images/icon/connect-1.png'
@@ -60,7 +60,7 @@ const WalletConnect = () => {
     )
     return (
         <div>
-            <Header />
+            <HeaderStyle2 />
             <section className="flat-title-page inner">
                 <div className="overlay"></div>
                 <div className="themesflat-container">
@@ -72,7 +72,6 @@ const WalletConnect = () => {
                             <div className="breadcrumbs style2">
                                 <ul>
                                     <li><Link to="/">Home</Link></li>
-                                    <li><Link to="#">Pages</Link></li>
                                     <li>Connect Wallet</li>
                                 </ul>
                             </div>
