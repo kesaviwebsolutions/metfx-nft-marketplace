@@ -519,7 +519,7 @@
 .style-2 .sc-box-icon {
     width                : calc(25% - 30px);
     margin-left          : 30px;
-    padding              : 39px 20px 39px;
+    padding              : 43px 20px 39px;
     -webkit-border-radius: 16px;
     -ms-border-radius    : 16px;
     -o-border-radius     : 16px;
@@ -546,7 +546,7 @@
 }
 
 .style-2 .sc-box-icon .img {
-    margin-bottom     : 18px;
+    margin-bottom     : 22px;
     -webkit-transition: all 0.8s ease;
     -moz-transition   : all 0.8s ease;
     -ms-transition    : all 0.8s ease;
@@ -5313,7 +5313,7 @@ button.accordion-button {
 }
 
 .header_1.header_2 #main-nav{
-    left: 42.4%;
+    left: 50%;
 }
 
 .header_2 #main-nav>ul>li {

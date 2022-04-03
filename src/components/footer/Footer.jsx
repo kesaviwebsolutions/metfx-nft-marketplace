@@ -1,7 +1,6 @@
 import React, { useState ,useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import logodark from '../../assets/images/logo/logo_dark.png'
-import logofooter from '../../assets/images/logo/logo2.png'
 const Footer = () => {
     const accountList = [
         {
@@ -36,15 +35,15 @@ const Footer = () => {
     const socialList = [
         {
             icon: "fab fa-twitter",
-            link: "https://www.twitter.com/metfxmetaverse"
+            link: "https://twitter.com/metfxmetaverse"
         },
         {
             icon: "fab fa-instagram",
-            link: "https://www.instagram.com/MetFX.official/"
+            link: "https://www.instagram.com/metfx.official/"
         },
         {
             icon: "fab fa-telegram-plane",
-            link: "https://t.me/MetFXWORLD"
+            link: "https://t.me/METFXWORLD"
         },
         {
             icon: "fab fa-youtube",
@@ -52,7 +51,7 @@ const Footer = () => {
         },
         {
             icon: "icon-fl-vt",
-            link: "https://discord.gg/smPPAKSmV4"
+            link: "https://discord.gg/NAZMfZ3Z"
         },
         
 
@@ -92,11 +91,11 @@ const Footer = () => {
                                 <div className="logo-footer" id="logo-footer">
                                     <Link to="/">
                                         <img className='logo-dark' id="logo_footer" src={logodark} alt="nft-gaming" />
-                                        <img className='logo-light' id="logo_footer" src={logofooter} alt="nft-gaming" />
+                                        <img className='logo-light' id="logo_footer" src={logodark} alt="nft-gaming" />
                                         
                                     </Link>
                                 </div>
-                                <p className="sub-widget-logo">Lorem ipsum dolor sit amet,consectetur adipisicing elit. Quis non, fugit totam vel laboriosam vitae.</p>
+                                <p className="sub-widget-logo">From the comfort of your home, you can watch thousands of movies and enjoy the beauty of the metaverse.</p>
                             </div>
                         </div>
                         <div className="col-lg-2 col-md-4 col-sm-5 col-5">
@@ -148,7 +147,7 @@ const Footer = () => {
                                     <ul>
                                         {
                                             socialList.map((item,index) =>(
-                                                <li key={index}><Link to={item.link}><i className={item.icon}></i></Link></li>
+                                                <li key={index}><a href={item.link} target="_blank" rel="noreferrer"><i className={item.icon}></i></a></li>
                                             ))
                                         }
                                     </ul>

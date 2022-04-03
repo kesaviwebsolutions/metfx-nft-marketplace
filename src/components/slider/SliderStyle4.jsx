@@ -6,9 +6,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import img1 from '../../assets/images/box-item/img_item1.jpg'
-import img2 from '../../assets/images/box-item/img_item2.jpg'
-import img3 from '../../assets/images/box-item/img_item3.jpg'
+import img1 from '../../assets/images/box-item/img_item6.jpg'
+import img2 from '../../assets/images/box-item/img_item7.jpg'
+import img3 from '../../assets/images/box-item/img_item8.jpg'
 import shape1 from '../../assets/images/backgroup-secsion/bg-gradient1.png'
 import shape2 from '../../assets/images/backgroup-secsion/bg-gradient2.png'
 import shape3 from '../../assets/images/backgroup-secsion/bg-gradient3.png'

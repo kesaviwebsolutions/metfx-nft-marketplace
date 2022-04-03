@@ -7,6 +7,7 @@ import Category from '../components/layouts/home-7/Category';
 import SliderStyle4 from '../components/slider/SliderStyle4';
 import TodayPicks from '../components/layouts/home-7/TodayPicks';
 import Create from '../components/layouts/home-7/Create';
+import VideoNFT from './VideoNFT';
 // import PopularCollection from '../components/layouts/home-7/PopularCollection';
 
 const Home07 = () => {
@@ -18,6 +19,7 @@ const Home07 = () => {
             <Category />
             {/* <TopSeller /> */}
             <Create />
+            <VideoNFT/>
             <TodayPicks />
             {/* <PopularCollection /> */}
             <Footer />

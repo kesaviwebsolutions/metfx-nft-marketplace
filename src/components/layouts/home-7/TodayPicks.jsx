@@ -8,7 +8,7 @@ import imgfilter2 from '../../../assets/images/icon/rainbow.png'
 import imgfilter3 from '../../../assets/images/icon/photo.png'
 import imgfilter4 from '../../../assets/images/icon/itunes.png'
 
-import img1 from '../../../assets/images/box-item/image-box-46.jpg'
+import img1 from '../../../assets/images/box-item/img_item6.jpg'
 import imga1 from '../../../assets/images/avatar/avt-10.jpg'
 import img2 from '../../../assets/images/box-item/img_item2.jpg'
 import imga2 from '../../../assets/images/avatar/avt-8.jpg'
@@ -16,7 +16,7 @@ import img3 from '../../../assets/images/box-item/img_item4.jpg'
 import imga3 from '../../../assets/images/avatar/avt-32.jpg'
 import img4 from '../../../assets/images/box-item/img_item5.jpg'
 import imga4 from '../../../assets/images/avatar/avt-2.jpg'
-// import img5 from '../../../assets/images/box-item/image-box-40.jpg'
+import img5 from '../../../assets/images/box-item/img_item8.jpg'
 import imga5 from '../../../assets/images/avatar/avt-7.jpg'
 import img6 from '../../../assets/images/box-item/image-box-41.jpg'
 import imga6 from '../../../assets/images/avatar/avt-9.jpg'
@@ -69,7 +69,7 @@ const TodayPicks = () => {
                 wishlist: "100",
             },
             {
-                img: img1,
+                img: img5,
                 title: "Hamlet Contemplates Contemplates ",
                 tags: "bsc",
                 imgAuthor: imga5,
