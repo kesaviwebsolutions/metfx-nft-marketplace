@@ -51,16 +51,16 @@ const menus = [
         name: 'NFT Marketplace',
         links: 'marketplace',
     },
-    {
-        id: 3,
-        name: 'Pitch Deck',
-        links: 'https://www.metfx.io/assets/MetFX.pdf',
-    },
-    {
-        id: 4,
-        name: 'Whitepaper',
-        links: 'https://escanor-sama.gitbook.io/welcome-to-metflix/',
-    },
+    // {
+    //     id: 3,
+    //     name: 'Pitch Deck',
+    //     links: 'https://www.metfx.io/assets/MetFX.pdf',
+    // },
+    // {
+    //     id: 4,
+    //     name: 'Whitepaper',
+    //     links: 'https://escanor-sama.gitbook.io/welcome-to-metflix/',
+    // },
     {
         id: 5,
         name: 'Contact',

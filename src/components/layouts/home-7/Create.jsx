@@ -9,7 +9,7 @@ const Create = () => {
     const data = [
         {
             title: "Add Your NFTs",
-            description: "Sed ut perspiciatis un de omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem.",
+            description: "Once you've created your NFT, you will be presented with the option to list it for sale on the marketplace.",
             icon : icon3,
             colorbg : "icon-color3"
         },
@@ -38,12 +38,9 @@ const Create = () => {
             <div className="row">
                 <div className="col-xl-4 col-lg-12 col-md-12">
                     <div className="heading-live-auctions style2 mg-t-3 mg-bt-22">
-                        <h3 className="heading-fill mg-bt-16">Creat NFT</h3>
-                        <h2 className="tf-title text-left pb-15">Create And Sell Your NFTs</h2>                    
-                        <p className="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sollicitudin morbi donec venenatis sed eget pellentesque viverra ut. 
-                            Elementum nam praesent mauris auctor amet, pulvinar adipiscing ultricies ut. 
-                            Id dignissim tristique ultrices arcu tempor. Aenean quam odio fringilla amet, imperdiet.
-                        </p>     
+                        <h3 className="heading-fill mg-bt-16">Create NFT</h3>
+                        <h2 className="tf-title text-left pb-15">Create And Sell Your NFT's</h2>                    
+                        <p className="content">Certain MetFX assets can be minted and turned into NFTs.</p>     
                     </div>
                 </div>                          
                 <div className="col-xl-8 col-lg-12 col-md-12">
