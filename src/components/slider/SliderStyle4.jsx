@@ -25,9 +25,9 @@ const SliderStyle4 = () => {
                 <div className="themesflat-container ">
                         <div className="wrap-heading flat-slider flex">
                             <div className="content">
-                                <h2 className="heading mt-15">DISCOVER COLLECT
+                                <h2 className="heading mt-15">Discover Collect
                                 </h2>	
-                                <h1 className="heading mb-style"><span className="tf-text s1">BUY &amp; SELL EXTRAORDINARY</span>                                          
+                                <h1 className="heading mb-style"><span className="tf-text s1">Buy &amp; Sell Extraordinary</span>                                          
                                 </h1>
                                 <h1 className="heading">MetFx NFT's</h1>
                                 <p className="sub-heading mt-19 mb-40">Build your NFT inventory and connect through the gateway to MetFX Metaverse.</p>

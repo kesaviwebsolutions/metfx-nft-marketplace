@@ -6,12 +6,12 @@ import { Navigation, Scrollbar, A11y } from 'swiper';
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
-import img1 from '../../../assets/images/box-item/img_category1.jpg'
-// import img2 from '../../../assets/images/box-item/img_category2.jpg'
-// import img3 from '../../../assets/images/box-item/img_category3.jpg'
-// import img4 from '../../../assets/images/box-item/img_category4.jpg'
-// import img5 from '../../../assets/images/box-item/img_category5.jpg'
-// import img6 from '../../../assets/images/box-item/img_category6.jpg'
+import img1 from '../../../assets/images/box-item/img_item2.jpg'
+import img2 from '../../../assets/images/box-item/img_item1.jpg'
+import img3 from '../../../assets/images/box-item/img_land.jpg'
+import img4 from '../../../assets/images/box-item/img_item3.jpg'
+import img5 from '../../../assets/images/box-item/img_item4.jpg'
+import img6 from '../../../assets/images/box-item/img_item6.jpg'
 
 const Category = () => {
     const [data] = useState([
@@ -21,23 +21,23 @@ const Category = () => {
         },
         {
             title: 'Collection 2',
-            img: img1
+            img: img2
         },
         {
             title: 'Land',
-            img: img1
+            img: img3
         },
         {
             title: 'Sports',
-            img: img1
+            img: img4
         },
         {
             title: 'Utilities',
-            img: img1
+            img: img5
         },
         {
             title: 'Digital Art',
-            img: img1
+            img: img6
         },
         {
             title: 'Style',
