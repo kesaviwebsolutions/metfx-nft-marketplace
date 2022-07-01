@@ -8,6 +8,7 @@ import SliderStyle4 from '../components/slider/SliderStyle4';
 import TodayPicks from '../components/layouts/home-7/TodayPicks';
 import Create from '../components/layouts/home-7/Create';
 import VideoNFT from './VideoNFT';
+import W2ENFTs from './W2ENFTs';
 // import PopularCollection from '../components/layouts/home-7/PopularCollection';
 
 const Home07 = () => {
@@ -20,6 +21,7 @@ const Home07 = () => {
             {/* <TopSeller /> */}
             <Create />
             <VideoNFT/>
+            <W2ENFTs/>
             <TodayPicks />
             {/* <PopularCollection /> */}
             <Footer />
