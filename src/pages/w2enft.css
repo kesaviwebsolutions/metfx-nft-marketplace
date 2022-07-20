@@ -1,0 +1,17 @@
+.mintBtn {
+  width: 100%;
+  display: block;
+  margin: auto;
+  background: transparent;
+  color: #fff !important;
+}
+.mintBtn:hover {
+  color: #5142fc !important;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 912px) {
+  .mintBtn {
+   margin-bottom: 20px;
+  }
+}

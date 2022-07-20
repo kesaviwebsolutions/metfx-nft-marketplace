@@ -1,0 +1,10 @@
+.header-content {
+  width: 100% !important;
+  height: 50vh;
+}
+
+@media screen and (max-width: 576px) {
+  .header-content {
+    height: 100%;
+  }
+}

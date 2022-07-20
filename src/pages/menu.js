@@ -1,8 +1,8 @@
 const menus = [
     {
         id: 1,
-        name: 'Home',
-        links: '/',
+        name: 'Back to mainwebsite',
+        links: '/', 
         // namesub: [
         //     {
         //         id: 1,
@@ -46,11 +46,11 @@ const menus = [
         //     },
         // ]
     },
-    {
-        id: 2,
-        name: 'NFT Marketplace',
-        links: 'marketplace',
-    },
+    // {
+    //     id: 2,
+    //     name: 'NFT Marketplace',
+    //     links: 'marketplace',
+    // },
     // {
     //     id: 3,
     //     name: 'Pitch Deck',
@@ -66,23 +66,23 @@ const menus = [
         name: 'Contact',
         links: '/contact',
     },
-    {
-        id: 7,
-        name: 'Profile',
-        links: '#',
-        namesub: [
-            {
-                id: 5,
-                sub: 'Edit Profile',
-                links: '/edit-profile'
-            },
-            {
-                id: 4,
-                sub: 'Create Item',
-                links: '/create-item'
-            },
-            ],
-    },
+    // {
+    //     id: 7,
+    //     name: 'Profile',
+    //     links: '#',
+    //     namesub: [
+    //         {
+    //             id: 5,
+    //             sub: 'Edit Profile',
+    //             links: '/edit-profile'
+    //         },
+    //         {
+    //             id: 4,
+    //             sub: 'Create Item',
+    //             links: '/create-item'
+    //         },
+    //         ],
+    // },
     
 ]
 
