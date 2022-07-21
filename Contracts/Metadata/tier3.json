@@ -1,0 +1,18 @@
+{
+    "title": "MFX Tier 1 Membership",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "MFX Gold Plan"
+        },
+        "earningRate": {
+            "type": "string",
+            "description": "$171.72 Every month"
+        },
+        "nftVideo": {
+            "type": "string",
+            "description": "ipfs://bafybeictzrwgelyhiylitw6qc3yxyv4ptl64wncfgrpxvkgrhiy3a64kta/"
+        }
+    }
+}

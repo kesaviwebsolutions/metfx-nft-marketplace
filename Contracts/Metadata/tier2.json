@@ -1,0 +1,18 @@
+{
+    "title": "MFX Tier 2 Membership",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "MFX Silver Plan"
+        },
+        "earningRate": {
+            "type": "string",
+            "description": "$114.48 Every month"
+        },
+        "nftVideo": {
+            "type": "string",
+            "description": "ipfs://bafybeiekgdsb6tjaaya5tdp7gjc4uygjcqxg6egdhxb2e3es4nyzx2ugly/"
+        }
+    }
+}

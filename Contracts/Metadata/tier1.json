@@ -1,0 +1,18 @@
+{
+    "title": "MFX Tier 1 Membership",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "MFX Bronze Plan"
+        },
+        "earningRate": {
+            "type": "string",
+            "description": "$57.24 Every month"
+        },
+        "nftVideo": {
+            "type": "string",
+            "description": "ipfs://bafybeifawn2w5u6y4azkcmwec3zkvdqiwevhotjc6ywgykfbs2tovauinu/"
+        }
+    }
+}

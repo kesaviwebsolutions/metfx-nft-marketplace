@@ -1,7 +1,7 @@
 //0x73d1D0Ce50D2c380c6Af8c9ead3dBeDE198eB885
 import { TierNFT } from "./NFTABI"
 import { getAccount, getContract } from "./Web3Methods"
-const address = "0xB2Ec152878835c89a8f6f8f49ae07097201dFBfd"
+const address = "0xbf0eeC8A546025C5037eB8dc12275A869Cb618e9"
 
 
 export const Whitelistfor1 =async()=>{
