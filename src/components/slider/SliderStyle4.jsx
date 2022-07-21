@@ -25,14 +25,12 @@ const SliderStyle4 = () => {
         <div className="themesflat-container">
           <div className="wrap-heading flat-slider flex text-center">
             <div className="header-content">
-              <h2 className="heading mt-15">Discover Collect</h2>
+              <h2 className="heading mt-15">MFX WATCH-TO-EARN NFTs</h2>
               <h1 className="heading mb-style">
-                <span className="tf-text s1">Buy &amp; Sell Extraordinary</span>
+                <span className="tf-text s1">EARN WHILE ENJOYING YOUR FAVOURITE CONTENT</span>
               </h1>
-              <h1 className="heading">MetFx NFT's</h1>
               <p className="sub-heading mt-19 mb-40">
-                Build your NFT inventory and connect through the gateway to
-                MetFX Metaverse.
+                This phase is open only to investors who participated in Seed Sale/Private Sale/Fairlaunch Presale. Visit our offical TG to know more.
               </p>
               {/* <div className="flat-bt-slider flex style2 d-block m-auto">
                 <Link
