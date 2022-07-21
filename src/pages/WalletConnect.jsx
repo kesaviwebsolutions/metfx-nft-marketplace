@@ -2,7 +2,7 @@ import React , { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderStyle2 from '../components/header/HeaderStyle2';
 import Footer from '../components/footer/Footer';
-
+import { SelectWallet } from "./../Web3/Wallets"
 import img1 from '../assets/images/icon/connect-1.png'
 // import img2 from '../assets/images/icon/connect-2.png'
 // import img3 from '../assets/images/icon/connect-3.png'
@@ -18,6 +18,7 @@ const WalletConnect = () => {
             {
                 img: img1,
                 title: 'Meta Mask',
+                Wallet: 0
                 // description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt'
             },
             // {
@@ -33,6 +34,7 @@ const WalletConnect = () => {
             {
                 img: img4,
                 title: 'Wallet Connect',
+                Wallet: 1
                 // description: 'Metus corrupti itaque reiciendis, provident condimentum, reprehenderit numquam, mi'
             },
             // {
@@ -58,6 +60,11 @@ const WalletConnect = () => {
             
         ]
     )
+
+    const Connct_Wallet = async(tab) => {
+        await SelectWallet(tab);
+    }
+
     return (
         <div>
             <HeaderStyle2 />
@@ -102,13 +109,14 @@ const WalletConnect = () => {
                             <div className="sc-box-icon-inner style-2 justify-content-center">
                                 {
                                     data.map((item,index) => (
-                                        <div key={index} className="sc-box-icon">
+                                        <div key={index} className="sc-box-icon" onClick={()=> Connct_Wallet(item.Wallet)}>
                                             <div className="img">
                                                 <img src={item.img} alt="Axies" />
                                             </div>
-                                            <h4 className="heading"><Link to="/login">{item.title}</Link> </h4>
+                                            {/* <h4 className="heading"><Link to="/login">{item.title}</Link></h4> */}
+                                            <h4 className="heading">{item.title}</h4>
                                             {/* <p className="content">{item.description}</p> */}
-                                         </div>
+                                        </div>
                                     ))
                                 }
                             </div>  
