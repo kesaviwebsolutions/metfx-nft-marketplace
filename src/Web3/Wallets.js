@@ -1,6 +1,6 @@
 import Web3 from "web3/dist/web3.min.js";
 import WalletConnectProvider from "@walletconnect/web3-provider";
-import { loginProcess } from "./Web3Methods"
+import { getAccount, loginProcess } from "./Web3Methods"
 
 let httpProvider = null
 
@@ -17,19 +17,21 @@ export const SelectWallet = async (tab) => {
   let data = undefined
   console.log(tab)
     try{
-      if (tab = 0) {
+      if (tab == 1) {
         data = await provider.enable();
-        console.log(data)
+        console.log("data is ",data)
         httpProvider = provider
         if(data){
-          window.provide = true
-          console.log(httpProvider,data,window.provide)
+          const address = await getAccount();
+          window.address = address
         }
         return data[0];
       }
-      if(tab = 1){
+      if(tab == 0){
         httpProvider = window.ethereum
         await loginProcess();
+        const address = await getAccount();
+        window.address = address
       }
     }
     catch(e){
@@ -39,6 +41,7 @@ export const SelectWallet = async (tab) => {
 }
 export const DisconnectWallet =async()=>{
     await provider.disconnect();
+    window.address = undefined
     httpProvider = null;
 }
 

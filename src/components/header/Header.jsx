@@ -1,4 +1,4 @@
-import React , { useRef , useState , useEffect } from 'react';
+import React , { useRef , useState , useEffect, useLayoutEffect } from 'react';
 import { Link , useLocation } from "react-router-dom";
 import menus from "../../pages/menu";
 import DarkMode from './DarkMode';
@@ -11,7 +11,10 @@ import avt from '../../assets/images/avatar/avt-2.jpg'
 
 
 const Header = () => {
-    const { pathname } = useLocation();
+
+
+    const { pathname 
+    } = useLocation();
 
     const headerRef = useRef (null)
     useEffect(() => {
@@ -20,6 +23,7 @@ const Header = () => {
             window.removeEventListener('scroll', isSticky);
         };
     });
+ 
     const isSticky = (e) => {
         const header = document.querySelector('.js-header');
         const scrollTop = window.scrollY;

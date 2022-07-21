@@ -19,7 +19,7 @@ export const getChain = async () => {
 }
 
 export const CheckChain = async () => {
-  let web3 = getWeb3()
+  let web3 = getWeb3();
   const chainId = await web3.eth.getChainId()
   if (parseInt(chainId) == 1) {
     return true
@@ -30,7 +30,7 @@ export const CheckChain = async () => {
 
 export const getAccount = async () => {
  try {
-    let web3 = getWeb3()
+    let web3 = getWeb3();
     const account = await web3.eth.getAccounts()
     return account[0]
  } catch (error) {
@@ -95,4 +95,14 @@ export const network_version = () => {
   } catch (e) {
     console.log(e)
   }
+}
+
+export const getBal = async()=>{
+    try {
+        const web3 = getWeb3();
+        const bal = await web3.eth.getBalance(await getAccount());
+        return bal/10**18;
+    } catch (error) {
+        console.log(error)
+    }
 }
