@@ -3,7 +3,7 @@ import tier1 from "../assets/videos/watch-2-earn-bronze.mp4";
 import tier2 from "../assets/videos/watch-2-earn-silver.mp4";
 import tier3 from "../assets/videos/watch-2-earn-gold.mp4";
 import "./w2enft.css";
-import { MintTier1, MintTier2, MintTier3, SaleActive, isWhitelisted1, isWhitelisted2, isWhitelisted3 } from "../Web3/ContractMethods";
+import { MintTier1, MintTier2, MintTier3, SaleActive, isWhitelisted1, isWhitelisted2, isWhitelisted3, NFTBal } from "../Web3/ContractMethods";
 import { getBal } from "../Web3/Web3Methods";
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -18,6 +18,7 @@ export default function W2ENFTs() {
   const [white3, setWhite3] = useState(true)
   const [saleactive, setSateactive] = useState(false)
   const [balance, setBalance] = useState(0)
+  const [nftbalance, setNFTbalance] = useState(0)
 
   useEffect(() => {
     const init =async()=>{
@@ -26,6 +27,8 @@ export default function W2ENFTs() {
       const data3 = await isWhitelisted3();
       const sale = await SaleActive();
       const bal = await getBal();
+      const nftbala = await NFTBal();
+      setNFTbalance(nftbala)
       setBalance(bal)
       setSateactive(sale);
       setWhite1(data1);
@@ -106,7 +109,7 @@ export default function W2ENFTs() {
               }}
         
             >
-              Mint
+              {white1 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 1') : "You are not whitelisted for this tier!" }
             </button>
           </div>
           <div className="col-lg-4">
@@ -118,7 +121,7 @@ export default function W2ENFTs() {
               }}
               
             >
-              Mint
+               {white2 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 2') : "You are not whitelisted for this tier!" }
             </button>
           </div>
           <div className="col-lg-4">
@@ -130,11 +133,11 @@ export default function W2ENFTs() {
               }}
             
             >
-              Mint
+               {white3 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 3') : "You are not whitelisted for this tier!" }
             </button>
           </div>
         </div>
-        {alert ? (
+        {white1 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -147,7 +150,7 @@ export default function W2ENFTs() {
                 }}
               >
                 <strong style={{ fontSize: "20px" }}>
-                  Minted Successfully For Tier 1
+                  You are Member of tier 1
                 </strong>
               </div>
             </div>
@@ -155,7 +158,7 @@ export default function W2ENFTs() {
         ) : (
           ""
         )}
-        {alert2 ? (
+        {white2 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -176,7 +179,7 @@ export default function W2ENFTs() {
         ) : (
           ""
         )}
-        {alert3 ? (
+        {white3 ? (
           <div className="row">
             <div className="col-lg-12">
               <div

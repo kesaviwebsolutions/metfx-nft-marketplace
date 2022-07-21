@@ -1,7 +1,7 @@
 //0x73d1D0Ce50D2c380c6Af8c9ead3dBeDE198eB885
 import { TierNFT } from "./NFTABI"
 import { getAccount, getContract } from "./Web3Methods"
-const address = "0xD3235C6cC3fDfa76D25ddF96c80F8ac42f25045B"
+const address = "0xB2Ec152878835c89a8f6f8f49ae07097201dFBfd"
 
 
 export const Whitelistfor1 =async()=>{
@@ -101,3 +101,13 @@ export const isWhitelisted3 = async()=>{
         console.log(error)
     }
 }
+
+export const NFTBal = async()=>{
+    try {
+      const contract = await getContract(TierNFT, address);
+      const data = contract.methods.balanceOf(await getAccount()).call();
+      return data;
+    } catch (error) {
+      console.log(error)
+    }
+  }
