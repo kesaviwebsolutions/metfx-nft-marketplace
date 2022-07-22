@@ -21,7 +21,7 @@ const Footer = () => {
     },
     {
       title: "Streaming App",
-      link: "https://stream.metfx.io/",
+      link: "#",
     },
   ];
   // const companyList = [
