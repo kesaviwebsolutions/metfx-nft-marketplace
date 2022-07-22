@@ -25,7 +25,7 @@ const SliderStyle4 = () => {
         <div className="themesflat-container">
           <div className="wrap-heading flat-slider flex text-center">
             <div className="header-content">
-              <h2 className="heading mt-15">MFX WATCH-TO-EARN NFTs</h2>
+              <h2 className="heading mt-15">MFX WATCH-2-EARN NFTs</h2>
               <h1 className="heading mb-style">
                 <span className="tf-text s1">EARN WHILE ENJOYING YOUR FAVOURITE CONTENT</span>
               </h1>

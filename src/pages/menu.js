@@ -49,7 +49,7 @@ const menus = [
     {
         id: 2,
         name: "Streaming App",
-        links: "#",
+        links: "https://play.metfx.io",
     },
     // {
     //     id: 3,

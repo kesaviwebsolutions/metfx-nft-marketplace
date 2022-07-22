@@ -257,7 +257,7 @@ export default function W2ENFTs() {
                   Congratulations! You are BRONZE member.
                 </strong>
               </div>
-              <a href="#" target='_blank'><button className="mintBtn col-lg-4">
+              <a href="https://play.metfx.io" target='_blank'><button className="mintBtn col-lg-4">
                   Open Streaming App 
               </button></a>
             </div>
