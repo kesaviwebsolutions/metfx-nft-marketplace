@@ -32,6 +32,7 @@ export const SelectWallet = async (tab) => {
         await loginProcess();
         const address = await getAccount();
         window.address = address
+        
       }
     }
     catch(e){

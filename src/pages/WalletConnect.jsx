@@ -64,6 +64,7 @@ const WalletConnect = () => {
     const Connct_Wallet = async(tab) => {
         await SelectWallet(tab);
         window.localStorage.setItem("Wallet",`${tab}`)
+        window.location.replace('/')
     }
 
     return (

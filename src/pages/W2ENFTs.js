@@ -3,9 +3,10 @@ import tier1 from "../assets/videos/watch-2-earn-bronze.mp4";
 import tier2 from "../assets/videos/watch-2-earn-silver.mp4";
 import tier3 from "../assets/videos/watch-2-earn-gold.mp4";
 import "./w2enft.css";
-import { MintTier1, MintTier2, MintTier3, SaleActive, isWhitelisted1, isWhitelisted2, isWhitelisted3, NFTBal } from "../Web3/ContractMethods";
+import { MintTier1, MintTier2, MintTier3, SaleActive, isWhitelisted1, isWhitelisted2, isWhitelisted3, NFTBal, MintTier1MX, MintTier2MX, MintTier3MX, Metafxbal } from "../Web3/ContractMethods";
 import { getBal } from "../Web3/Web3Methods";
 import toast, { Toaster } from 'react-hot-toast';
+import axios from "axios";
 
 const error =(msg)=> toast.error(msg);
 
@@ -19,12 +20,16 @@ export default function W2ENFTs() {
   const [saleactive, setSateactive] = useState(false)
   const [balance, setBalance] = useState(0)
   const [nftbalance, setNFTbalance] = useState(0)
+  const [bnb, setBNB] = useState(0)
+  const [metfx, setMETFX] = useState(0)
+  const [metfxtoken, setMETFXToken] = useState(0)
 
   useEffect(() => {
     const init =async()=>{
       const data1 = await isWhitelisted1();
       const data2 = await isWhitelisted2();
       const data3 = await isWhitelisted3();
+      const mfxtoken = await Metafxbal();
       const sale = await SaleActive();
       const bal = await getBal();
       const nftbala = await NFTBal();
@@ -34,11 +39,47 @@ export default function W2ENFTs() {
       setWhite1(data1);
       setWhite2(data2);
       setWhite3(data3);
+      setMETFXToken(mfxtoken)
+      console.log("Metfx balance",mfxtoken)
     }
-
     init();
+    apicall();
   }, [])
+
+  const apicall =async()=>{
+    axios.get("https://api.coingecko.com/api/v3/simple/price?ids=binancecoin&vs_currencies=usd").then((res)=>{
+      // console.log(res)
+      setBNB(res.data.binancecoin.usd)
+    }).catch((e)=>[
+      console.log(e)
+    ])
+
+    axios.get("https://api.pancakeswap.info/api/v2/tokens/0x6266a18F1605DA94e8317232ffa634C74646ac40").then((res)=>{
+      console.log(res)
+      setMETFX(Number(res.data.data.price).toFixed(5))
+    }).catch((e)=>[
+      console.log(e)
+    ])
+  }
   
+  const init2 =async()=>{
+    const data1 = await isWhitelisted1();
+    const data2 = await isWhitelisted2();
+    const data3 = await isWhitelisted3();
+    const mfxtoken = await Metafxbal();
+    const sale = await SaleActive();
+    const bal = await getBal();
+    const nftbala = await NFTBal();
+    setNFTbalance(nftbala)
+    setBalance(bal)
+    setSateactive(sale);
+    setWhite1(data1);
+    setWhite2(data2);
+    setWhite3(data3);
+    setMETFXToken(mfxtoken)
+    console.log("Metfx balance",mfxtoken)
+  }
+
   const mint1 =async()=>{
     if(!saleactive){
       error("Sale not Active")
@@ -48,12 +89,27 @@ export default function W2ENFTs() {
       error("Not WhiteListed for this tier")
       return true
     }
-    if(balance < 0.19){
-      error("Not enough balance")
-      return true
+    if(window.currceny == 0){
+      if(metfxtoken < 50){
+        error("Not enough MFX balance")
+        return true
+      }
+      const data = await MintTier1MX(metfx);
+      if(data.status){
+       await init2();
+      }
     }
-   const data = await MintTier1();
-   setAlert(data.status)
+    if(window.currceny == 1){
+      if(balance < 0.19){
+        error("Not enough balance")
+        return true
+      }
+      const data = await MintTier1(bnb);
+      if(data.status){
+        await init2();
+       }
+    }
+   
   }
 
 
@@ -66,16 +122,31 @@ export default function W2ENFTs() {
       error("Not WhiteListed for this tier")
       return true
     }
-    if(balance < 0.37){
-      error("Not enough balance")
-      return true
+   
+    if(window.currceny == 0){
+      if(metfxtoken < 50){
+        error("Not enough MFX balance")
+        return true
+      }
+      const data = await MintTier2MX(metfx);
+      if(data.status){
+        await init2();
+       }
     }
-    const data = await MintTier2()
-    console.log(data)
-    setAlert2(data.status)
+    if(window.currceny == 1){
+      if(balance < 0.37){
+        error("Not enough balance")
+        return true
+      }
+      const data = await MintTier2(bnb);
+      if(data.status){
+        await init2();
+       }
+    }
+ 
   }
 
-  console.log("alert2",alert2)
+
 
   const mint3 =async()=>{
     if(!saleactive){
@@ -86,12 +157,28 @@ export default function W2ENFTs() {
       error("Not WhiteListed for this tier")
       return true
     }
-    if(balance < 0.55){
-      error("Not enough balance")
-      return true
+  
+    if(window.currceny == 0 ){
+      if(metfxtoken < 50){
+        error("Not enough MFX balance")
+        return true
+      }
+      const data = await MintTier3MX(metfx);
+      if(data.status){
+        await init2();
+       }
     }
-    const data =  await MintTier3()
-    setAlert3(data.status)
+    if(window.currceny == 1){
+      if(balance < 0.37){
+        error("Not enough balance")
+        return true
+      }
+      const data = await MintTier3(bnb);
+      if(data.status){
+        await init2();
+       }
+    }
+   
   }
 
   return (
@@ -137,7 +224,7 @@ export default function W2ENFTs() {
             </button>
           </div>
         </div>
-        {white1 ? (
+        {nftbalance > 0 && white1 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -150,15 +237,18 @@ export default function W2ENFTs() {
                 }}
               >
                 <strong style={{ fontSize: "20px" }}>
-                  You are Member of tier 1
+                  Congratulations! You are BRONZE member.
                 </strong>
               </div>
+              <a href="#" target='_blank'><button className="mintBtn col-lg-4">
+                  Open Streaming App 
+              </button></a>
             </div>
           </div>
         ) : (
           ""
         )}
-        {white2 ? (
+        {nftbalance > 0 && white2 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -171,15 +261,18 @@ export default function W2ENFTs() {
                 }}
               >
                 <strong style={{ fontSize: "20px" }}>
-                  Minted Successfully For Tier 2
+                Congratulations! You are SILVER member.
                 </strong>
               </div>
+              <a href="#" target='_blank'><button className="mintBtn col-lg-4">
+                  Open Streaming App 
+              </button></a>
             </div>
           </div>
         ) : (
           ""
         )}
-        {white3 ? (
+        {nftbalance > 0 && white3 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -192,8 +285,11 @@ export default function W2ENFTs() {
                 }}
               >
                 <strong style={{ fontSize: "20px" }}>
-                  Minted Successfully For Tier 3
+                Congratulations! You are GOLD member.
                 </strong>
+                <a href="#" target='_blank'><button className="mintBtn col-lg-4">
+                  Open Streaming App 
+              </button></a>
               </div>
             </div>
           </div>

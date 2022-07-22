@@ -16,3 +16,15 @@
   border: none;
   cursor: default;
 }
+
+.switch{
+  border: 2px solid #5142fc;
+  transition: 0.3s;
+  padding: 0 !important;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}

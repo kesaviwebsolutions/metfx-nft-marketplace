@@ -10,7 +10,7 @@ export const loginProcess = async () => {
 
 export const getChain = async () => {
   try {
-    let web3 = getWeb3()
+    let web3 = getWeb3();
     const chainId = await web3.eth.getChainId()
     return chainId
   } catch (error) {
@@ -21,12 +21,13 @@ export const getChain = async () => {
 export const CheckChain = async () => {
   let web3 = getWeb3();
   const chainId = await web3.eth.getChainId()
-  if (parseInt(chainId) == 1) {
+  if (parseInt(chainId) == 3) {
     return true
   } else {
     return false
   }
 }
+
 
 export const getAccount = async () => {
  try {

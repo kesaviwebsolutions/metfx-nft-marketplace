@@ -5,8 +5,9 @@ import DarkMode from "./DarkMode";
 import logodark from "../../assets/images/logo/logo_dark.png";
 import avt from "../../assets/images/avatar/avt-2.jpg";
 import coin from "../../assets/images/logo/coin.svg";
-import { getAccount, loginProcess } from "../../Web3/Web3Methods";
+import { getAccount, CheckChain} from "../../Web3/Web3Methods";
 import { VscDebugDisconnect } from "react-icons/vsc"
+import {RiSwitchFill} from "react-icons/ri"
 import { DisconnectWallet, SelectWallet } from "../../Web3/Wallets";
 import "./headerStyle.css"
 
@@ -31,14 +32,50 @@ const HeaderStyle2 = () => {
         slicing(add);
         setAddress(add);
       }
+      const id = await CheckChain();
+      if(!id){
+        alert("Wrong Network");
+      }
     };
     init();
 
-    setInterval(()=>{
-        setAddress(window.address)
+    setInterval(async()=>{
+       try {
+        setAddress(window.address);
+       } catch (error) {
+        console.log(error)
+       }
     },100)
 
+  setInterval(async()=>{
+      try {
+        const id = await CheckChain();
+        console.log(id)
+        if(!id){
+          await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: '0x3' }],
+          });
+        }
+      } catch (error) {
+       console.log(error);
+      }
+   },2000)
+
   }, []);
+
+  try {
+    window.ethereum.on('chainChanged', (chainId) => {
+      window.location.reload();
+    });
+    window.ethereum.on('accountsChanged', (accounts) => {
+      slicing(accounts[0]);
+      setAddress(accounts[0]);
+      window.address = accounts[0]
+    });
+  } catch (error) {
+    
+  }
 
   const isSticky = (e) => {
     const header = document.querySelector(".js-header");
@@ -167,7 +204,7 @@ const HeaderStyle2 = () => {
                       to="/wallet-connect"
                       className="sc-button header-slider style style-1 wallet fl-button pri-1"
                     >
-                      <span >Wallet connect</span>
+                      <span>Wallet connect</span>
                     </Link>
                   </div>
                     :
@@ -181,7 +218,13 @@ const HeaderStyle2 = () => {
                     </button>
                   </div>}
 
-                  <div className="admin_active" id="header_admin">
+                  <div className="sc-btn-top" id="" style={{marginLeft:'10px'}}>
+                    <div className="switch d-flex align-items-center">
+                        <RiSwitchFill size={20} style={{ marginLeft: "5px"}}/>
+                    </div>
+                  </div>
+
+                  {/* <div className="admin_active" id="header_admin">
                     <div className="header_avatar">
                       <div className="price">
                         <span>
@@ -224,7 +267,7 @@ const HeaderStyle2 = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
