@@ -4,6 +4,7 @@ import HeaderStyle2 from '../components/header/HeaderStyle2';
 import Footer from '../components/footer/Footer';
 import { SelectWallet } from "./../Web3/Wallets"
 import img1 from '../assets/images/icon/connect-1.png'
+
 // import img2 from '../assets/images/icon/connect-2.png'
 // import img3 from '../assets/images/icon/connect-3.png'
 import img4 from '../assets/images/icon/connect-4.png'

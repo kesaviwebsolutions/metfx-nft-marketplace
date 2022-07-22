@@ -3,7 +3,7 @@ import tier1 from "../assets/videos/watch-2-earn-bronze.mp4";
 import tier2 from "../assets/videos/watch-2-earn-silver.mp4";
 import tier3 from "../assets/videos/watch-2-earn-gold.mp4";
 import "./w2enft.css";
-import { MintTier1, MintTier2, MintTier3, SaleActive, isWhitelisted1, isWhitelisted2, isWhitelisted3, NFTBal, MintTier1MX, MintTier2MX, MintTier3MX, Metafxbal } from "../Web3/ContractMethods";
+import { MintTier1, MintTier2, MintTier3, SaleActive, isWhitelisted1, isWhitelisted2, isWhitelisted3, NFTBal, MintTier1MX, MintTier2MX, MintTier3MX, Metafxbal, totalNFT1 } from "../Web3/ContractMethods";
 import { getBal } from "../Web3/Web3Methods";
 import toast, { Toaster } from 'react-hot-toast';
 import axios from "axios";
@@ -14,15 +14,16 @@ export default function W2ENFTs() {
   const [alert, setAlert] = useState(false);
   const [alert2, setAlert2] = useState(false);
   const [alert3, setAlert3] = useState(false);
-  const [white1, setWhite1] = useState(true)
-  const [white2, setWhite2] = useState(true)
-  const [white3, setWhite3] = useState(true)
-  const [saleactive, setSateactive] = useState(false)
-  const [balance, setBalance] = useState(0)
-  const [nftbalance, setNFTbalance] = useState(0)
-  const [bnb, setBNB] = useState(0)
-  const [metfx, setMETFX] = useState(0)
-  const [metfxtoken, setMETFXToken] = useState(0)
+  const [white1, setWhite1] = useState(true);
+  const [white2, setWhite2] = useState(true);
+  const [white3, setWhite3] = useState(true);
+  const [saleactive, setSateactive] = useState(false);
+  const [balance, setBalance] = useState(0);
+  const [nftbalance, setNFTbalance] = useState(0);
+  const [bnb, setBNB] = useState(0);
+  const [metfx, setMETFX] = useState(0);
+  const [metfxtoken, setMETFXToken] = useState(0);
+  const [totalsupply, setTotalSupply] = useState({one:0,two:0,three:0})
 
   useEffect(() => {
     const init =async()=>{
@@ -33,6 +34,10 @@ export default function W2ENFTs() {
       const sale = await SaleActive();
       const bal = await getBal();
       const nftbala = await NFTBal();
+      const tier1 = await totalNFT1(0);
+      const tier2 = await totalNFT1(1);
+      const tier3 = await totalNFT1(2);
+      setTotalSupply({one:tier1,two:tier2,three:tier3})
       setNFTbalance(nftbala)
       setBalance(bal)
       setSateactive(sale);
@@ -189,6 +194,10 @@ export default function W2ENFTs() {
         <div className="row" style={{ padding: "50px 15px 0px 15px" }}>
           <div className="col-lg-4">
             <video src={tier3} autoPlay muted loop className="w-100"></video>
+            <div className="d-flex justify-content-around mb-4">
+              <p>Total Minted</p>
+              <p>{totalsupply.one}</p>
+            </div>
             <button
               className="mintBtn"
               onClick={() => {
@@ -196,11 +205,15 @@ export default function W2ENFTs() {
               }}
         
             >
-              {white1 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 1') : "You are not whitelisted for this tier!" }
+              {window.address ? (white1 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 1') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
             </button>
           </div>
           <div className="col-lg-4">
             <video src={tier2} autoPlay muted loop className="w-100"></video>
+            <div className="d-flex justify-content-around mb-4">
+              <p>Total Minted</p>
+              <p>{totalsupply.two}</p>
+            </div>
             <button
               className="mintBtn"
               onClick={() => {
@@ -208,11 +221,15 @@ export default function W2ENFTs() {
               }}
               
             >
-               {white2 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 2') : "You are not whitelisted for this tier!" }
+               {window.address ? (white2 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 2') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
             </button>
           </div>
           <div className="col-lg-4">
             <video src={tier1} autoPlay muted loop className="w-100"></video>
+            <div className="d-flex justify-content-around mb-4">
+              <p>Total Minted</p>
+              <p>{totalsupply.three}</p>
+            </div>
             <button
               className="mintBtn"
               onClick={() => {
@@ -220,7 +237,7 @@ export default function W2ENFTs() {
               }}
             
             >
-               {white3 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 3') : "You are not whitelisted for this tier!" }
+               {window.address ? (white3 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 3') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
             </button>
           </div>
         </div>
