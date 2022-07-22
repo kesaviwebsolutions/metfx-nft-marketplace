@@ -146,9 +146,9 @@ contract TieredNFT is ERC721, Ownable, Shared {
 
     // https://stackoverflow.com/questions/64200059/solidity-problem-creating-a-struct-containing-mappings-inside-a-mapping
     constructor(string memory name, string memory symbol, address _token) ERC721(name, symbol) {
-        tiers[0] = Tier({price: 0.18 ether, priceInMFX: 4000*10**18, totalSupply: 0, maxSupply: 1999999, startingIndex: 0, mintsPerAddress : 1, tierUri:"ipfs://bafkreib5fcblxyvhynbsxg47hbgsswbuxw3xuvipej7vnq5uqtpucpdeti/"});
-        tiers[1] = Tier({price: 0.36 ether, priceInMFX: 8000*10**18, totalSupply: 0, maxSupply: 2999999, startingIndex: 2000000, mintsPerAddress : 1, tierUri:"ipfs://bafkreidwydtrxqt2ibj7btf5kdh6a6lnyiqsld5hcl2mgijlvxejlppvpu/"});
-        tiers[2] = Tier({price: 0.54 ether, priceInMFX: 12000*10**18, totalSupply: 0, maxSupply: 3999999, startingIndex: 3000000, mintsPerAddress : 1, tierUri:"ipfs://bafkreiez4tgumh4yci2o6puwdn425jbamyksrlitkptmg3kxhzc7kmc77e/"});
+        tiers[0] = Tier({price: 0.1 ether, priceInMFX: 2000*10**18, totalSupply: 0, maxSupply: 1999999, startingIndex: 0, mintsPerAddress : 1, tierUri:"ipfs://bafkreib5fcblxyvhynbsxg47hbgsswbuxw3xuvipej7vnq5uqtpucpdeti/"});
+        tiers[1] = Tier({price: 0.3 ether, priceInMFX: 4000*10**18, totalSupply: 0, maxSupply: 2999999, startingIndex: 2000000, mintsPerAddress : 1, tierUri:"ipfs://bafkreidwydtrxqt2ibj7btf5kdh6a6lnyiqsld5hcl2mgijlvxejlppvpu/"});
+        tiers[2] = Tier({price: 0.5 ether, priceInMFX: 6000*10**18, totalSupply: 0, maxSupply: 3999999, startingIndex: 3000000, mintsPerAddress : 1, tierUri:"ipfs://bafkreiez4tgumh4yci2o6puwdn425jbamyksrlitkptmg3kxhzc7kmc77e/"});
         swapRouter = ISwapRouter02 (ROUTER);
         paymentToken = IERC20(_token);
     }
@@ -213,7 +213,7 @@ contract TieredNFT is ERC721, Ownable, Shared {
         require(saleIsActive, "Sale is not active");
         require(_whitelistedForTier1[msg.sender], "Not whitelisted for tier I");
         require(tiers[tier].totalSupply + 1 <= tiers[tier].maxSupply, "Exceeded max limit of allowed token mints");
-        require(tiers[tier].priceInMFX <= weiAmount, "Not enough BNBs to mint the specified tier");
+        require(tiers[tier].priceInMFX <= weiAmount, "Not enough MFX to mint the specified tier");
         require(addressCountsPerTier[tier][msg.sender] + 1 <= tiers[tier].mintsPerAddress, "Max number of mints per address reached");
         uint256 paymentTransferred = preValidatePurchase (beneficiary, weiAmount);
         require (paymentTransferred > 0, "issue collecting payment");
@@ -430,6 +430,11 @@ contract TieredNFT is ERC721, Ownable, Shared {
     // @return The max supply of all tiers summed up
     function totalMaxSupply() external view returns (uint256) {
         return tiers[0].maxSupply + tiers[1].maxSupply + tiers[2].maxSupply;
+    }
+
+    function updatePaymentToken(address _token) external onlyOwner {
+        require(_token != address(0), "Can not set to dead address");
+        paymentToken = IERC20(_token);
     }
 
     // @return The tokenURI of a specific tokenId
