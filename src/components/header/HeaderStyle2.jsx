@@ -5,11 +5,29 @@ import DarkMode from "./DarkMode";
 import logodark from "../../assets/images/logo/logo_dark.png";
 import avt from "../../assets/images/avatar/avt-2.jpg";
 import coin from "../../assets/images/logo/coin.svg";
+import BNB from "./../../assets/images/logo/bnb.png";
+import MFX from "./../../assets/images/logo/metfx.png"
 import { getAccount, CheckChain} from "../../Web3/Web3Methods";
 import { VscDebugDisconnect } from "react-icons/vsc"
 import {RiSwitchFill} from "react-icons/ri"
 import { DisconnectWallet, SelectWallet } from "../../Web3/Wallets";
 import "./headerStyle.css"
+
+// MUI imports
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import InputLabel from '@mui/material/InputLabel';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import { NativeSelect } from "@mui/material";
+
+
 
 const HeaderStyle2 = () => {
   const { pathname } = useLocation();
@@ -113,6 +131,24 @@ const HeaderStyle2 = () => {
     setAddress(undefined);
   }
 
+  const [open, setOpen] = useState(false);
+  const [age, setAge] = useState('');
+
+  const handleChange = (event) => {
+    window.currceny = Number(event.target.value)
+    console.log(window.currceny,Number(event.target.value))
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason !== 'backdropClick') {
+      setOpen(false);
+    }
+  };
+
   return (
     <header
       id="header_main"
@@ -208,66 +244,46 @@ const HeaderStyle2 = () => {
                     </Link>
                   </div>
                     :
-                  <div className="sc-btn-top mt-10" id="site-header">
-                    <button className="disconenctButton d-flex align-items-center" onClick={()=>DisConnect()}>
+                  <div className="sc-btn-top" id="site-header">
+                    <button className="sc-button header-slider style style-1 wallet fl-button pri-1 mb-3" onClick={()=>DisConnect()}>
                       <span>{slicing(address)}</span>
-                        <VscDebugDisconnect
+                        {/* <VscDebugDisconnect
                             size={16}
                             style={{ marginLeft: "5px", cursor: "pointer" }}
-                        />
+                        /> */}
                     </button>
                   </div>}
 
-                  <div className="sc-btn-top" id="" style={{marginLeft:'10px'}}>
-                    <div className="switch d-flex align-items-center">
-                        <RiSwitchFill size={20} style={{ marginLeft: "5px"}}/>
+                  <div className="sc-btn-top mb-3" id="" style={{marginLeft:'10px'}}>
+                    <div className="switch d-flex align-items-center" onClick={handleClickOpen}>
+                        {window.currceny == 0 ? <img src={MFX} width={17}/> : <img src={BNB} height={18}/> }
                     </div>
                   </div>
 
-                  {/* <div className="admin_active" id="header_admin">
-                    <div className="header_avatar">
-                      <div className="price">
-                        <span>
-                          2.45 <strong>ETH</strong>{" "}
-                        </span>
-                      </div>
-                      <img className="avatar" src={avt} alt="avatar" />
-                      <div className="avatar_popup mt-20">
-                        <div className="d-flex align-items-center copy-text justify-content-between">
-                          <span> 13b9ebda035r178... </span>
-                          <Link to="/" className="ml-2">
-                            <i className="fal fa-copy"></i>
-                          </Link>
-                        </div>
-                        <div className="d-flex align-items-center mt-10">
-                          <img className="coin" src={coin} alt="/" />
-                          <div className="info ml-10">
-                            <p className="text-sm font-book text-gray-400">
-                              Balance
-                            </p>
-                            <p className="w-full text-sm font-bold text-green-500">
-                              16.58 ETH
-                            </p>
-                          </div>
-                        </div>
-                        <div className="hr"></div>
-                        <div className="links mt-20">
-                          <Link to="#">
-                            <i className="fab fa-accusoft"></i>{" "}
-                            <span> My items</span>
-                          </Link>
-                          <a className="mt-10" href="/edit-profile">
-                            <i className="fas fa-pencil-alt"></i>{" "}
-                            <span> Edit Profile</span>
-                          </a>
-                          <a className="mt-10" href="/login" id="logout">
-                            <i className="fal fa-sign-out"></i>{" "}
-                            <span> Logout</span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div> */}
+                  <div>
+                  <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
+                    <DialogTitle>Select Currency</DialogTitle>
+                    <DialogContent>
+                      <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
+                        <FormControl sx={{ m: 2, minWidth: 120 }} style={{fontSize:'20px'}}>
+                          {/* <InputLabel htmlFor="demo-dialog-native">{window.currceny}</InputLabel> */}
+                          <NativeSelect
+                            id="demo-customized-select-native"
+                            style={{fontSize:'12px'}}
+                            onChange={handleChange}>
+                            <option aria-label="None" value=""/>
+                            <option value={0}>METFX</option>
+                            <option value={1}>BNB</option>
+                          </NativeSelect>
+                        </FormControl>
+                      </Box>
+                    </DialogContent>
+                    <DialogActions>
+                      <Button onClick={handleClose}>OK</Button>
+                    </DialogActions>
+                  </Dialog>
+                </div>
+                
                 </div>
               </div>
             </div>
@@ -280,3 +296,6 @@ const HeaderStyle2 = () => {
 };
 
 export default HeaderStyle2;
+
+
+

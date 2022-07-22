@@ -83,6 +83,8 @@ export const MintTier1MX =async(amount)=>{
     }
 }
 
+
+
 export const MintTier2MX =async(amount)=>{
     try {
         const val = await WebUtils(100/amount)
@@ -114,6 +116,17 @@ export const MintTier3MX =async(amount)=>{
         console.log(error)
     }
 }
+
+export const totalNFT1 =async(id)=>{
+    try {
+        const contract = await getContract(TierNFT, address);
+        const data = await contract.methods.tierTotalSupply(id).call();
+        return data;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 export const SaleActive = async()=>{
     try {

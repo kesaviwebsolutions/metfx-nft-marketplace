@@ -29,6 +29,10 @@
   border-radius: 50%;
 }
 
+.flat-search-btn{
+  align-items: none;
+} 
+
 @media screen and (min-width:992px) {
   .menu-item {
     display: none;
