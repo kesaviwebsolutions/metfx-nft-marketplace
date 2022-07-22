@@ -1,8 +1,8 @@
 const menus = [
     {
         id: 1,
-        name: 'Back to mainwebsite',
-        links: '/', 
+        name: 'Main Website',
+        links: 'https://www.metfx.io/', 
         // namesub: [
         //     {
         //         id: 1,
@@ -46,11 +46,11 @@ const menus = [
         //     },
         // ]
     },
-    // {
-    //     id: 2,
-    //     name: 'NFT Marketplace',
-    //     links: 'marketplace',
-    // },
+    {
+        id: 2,
+        name: "Streaming App",
+        links: "https://stream.metfx.io/",
+    },
     // {
     //     id: 3,
     //     name: 'Pitch Deck',
@@ -61,11 +61,11 @@ const menus = [
     //     name: 'Whitepaper',
     //     links: 'https://escanor-sama.gitbook.io/welcome-to-metflix/',
     // },
-    {
-        id: 5,
-        name: 'Contact',
-        links: '/contact',
-    },
+    // {
+    //     id: 5,
+    //     name: 'Contact',
+    //     links: '/contact',
+    // },
     // {
     //     id: 7,
     //     name: 'Profile',
