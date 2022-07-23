@@ -4,7 +4,7 @@ import HeaderStyle2 from '../components/header/HeaderStyle2';
 import Footer from '../components/footer/Footer';
 import { SelectWallet } from "./../Web3/Wallets"
 import img1 from '../assets/images/icon/connect-1.png'
-
+import { useNavigate } from 'react-router-dom'
 // import img2 from '../assets/images/icon/connect-2.png'
 // import img3 from '../assets/images/icon/connect-3.png'
 import img4 from '../assets/images/icon/connect-4.png'
@@ -14,6 +14,7 @@ import img4 from '../assets/images/icon/connect-4.png'
 // import img8 from '../assets/images/icon/connect-8.png'
 
 const WalletConnect = () => {
+    const routerHistory = useNavigate();
     const [data] = useState(
         [
             {
@@ -64,8 +65,9 @@ const WalletConnect = () => {
 
     const Connct_Wallet = async(tab) => {
         await SelectWallet(tab);
-        window.localStorage.setItem("Wallet",`${tab}`)
-        window.location.replace('/')
+        window.localStorage.setItem("Wallet",`${tab}`);
+        routerHistory('/');
+        // window.location.replace('/')
     }
 
     return (
