@@ -229,7 +229,7 @@ export default function W2ENFTs() {
               }}
         
             >
-              {window.address ? (white1 ? (nftbalance <= 1999999 ? 'Minted' : 'Mint Tier 1') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
+              {window.address ? (white1 ? (nftbalance > 0 && nftbalance <= 1999999 ? 'Minted' : 'Mint Tier 1') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
             </button>
           </div>
           <div className="col-lg-4">
@@ -273,7 +273,7 @@ export default function W2ENFTs() {
             </button>
           </div>
         </div>
-        {nftbalance <= 1999999 && white1 ? (
+        {nftbalance > 0 && nftbalance <= 1999999 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -297,7 +297,7 @@ export default function W2ENFTs() {
         ) : (
           ""
         )}
-        {nftbalance > 1999999 && nftbalance <= 2999999 && white2 ? (
+        {nftbalance > 1999999 && nftbalance <= 2999999  ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -321,7 +321,7 @@ export default function W2ENFTs() {
         ) : (
           ""
         )}
-        {nftbalance > 2999999 && nftbalance <= 3999999 && white3 ? (
+        {nftbalance > 2999999 && nftbalance <= 3999999 ? (
           <div className="row">
             <div className="col-lg-12">
               <div

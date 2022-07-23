@@ -1,15 +1,23 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.1;
+pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./SwapInterface.sol";
 
 /** 
-    - MFX Membership NFTs - 3 Tier
-    - ARRNAYA SAFU DEV (t.me/ARRN4YA)
-    - MetFX Watch-To-Earn Project on BSC
+    MFX Membership NFTs - 3 Tier
+    Author - ARRNAYA SAFU DEV (t.me/ARRN4YA)
+    MetFX Watch-2-Earn Project on BSC - https://www.dextools.io/app/bnb/pair-explorer/0x48ff173df521d6231c3f879fbc1500dd477aced7
+
+    MetFX offers three tiers of memberships - Bronze (tier 1), Silver (tier 2) & Gold (tier 3). Whitelisted wallets can
+    buy the NFT of the tier that they have been whitelisted for. 1 wallet can only buy 1 NFT of any 1 tier and participate
+    in Watch-2-Earn program on play.metfx.io.
+
+    For more details regarding the earning rates and whitelist for memberships, join MetFX offical TG https://t.me/METFXWORLD
 **/
+
 
 interface IERC20 {
     /**
@@ -91,8 +99,8 @@ interface IERC20 {
  * Prevents accidental mismatches between contracts
  */
 contract Shared {
-    address constant public MFX = 0x4e4Ad5634d215DD1d36ef90Ae6F5e0F2353231bA; // MFX Mainnet address: 0x6266a18F1605DA94e8317232ffa634C74646ac40
-    address constant public ROUTER = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D ; // Pancakeswap Router address: 0x10ED43C718714eb63d5aA57B78B54704E256024E
+    address constant public MFX = 0x6266a18F1605DA94e8317232ffa634C74646ac40; // MFX Mainnet address: 0x6266a18F1605DA94e8317232ffa634C74646ac40
+    address constant public ROUTER = 0x10ED43C718714eb63d5aA57B78B54704E256024E ; // Pancakeswap Router address: 0x10ED43C718714eb63d5aA57B78B54704E256024E
 }
 
 contract TieredNFT is ERC721, Ownable, Shared {
