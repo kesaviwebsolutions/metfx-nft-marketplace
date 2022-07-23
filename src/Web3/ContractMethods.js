@@ -1,8 +1,8 @@
 //0x73d1D0Ce50D2c380c6Af8c9ead3dBeDE198eB885
 import { TierNFT } from "./NFTABI"
 import { getAccount, getContract, WebUtils } from "./Web3Methods"
-const address = "0x7dAA7816780709ab4930C4E0fF9555f1e0cd2c8B"
-const tokenaddress = "0x84CaE20B42bE7f0C580F7B0a7E8663fd4Bea7D81"
+const address = "0x7f2D03Ee26127c11c113bd5d5F1c204F1565c272"//" Ropsten 0x7dAA7816780709ab4930C4E0fF9555f1e0cd2c8B"
+const tokenaddress = "0x6266a18F1605DA94e8317232ffa634C74646ac40"//" MFX on Ropsten 0x84CaE20B42bE7f0C580F7B0a7E8663fd4Bea7D81"
 
 export const Whitelistfor1 =async()=>{
     try {
@@ -38,7 +38,7 @@ export const MintTier1 =async(amount)=>{
     try {
         const val = await WebUtils(50/amount)
         const contract = await getContract(TierNFT, address);
-        const data = await contract.methods.mintTier1(0).send({from:await getAccount(), value:'180000000000000000'});
+        const data = await contract.methods.mintTier1(0).send({from:await getAccount(), value:val});
         return data;
     } catch (error) {
         console.log(error)
@@ -61,7 +61,7 @@ export const MintTier3 =async(amount)=>{
     try {
         const val = await WebUtils(150/amount)
         const contract = await getContract(TierNFT, address);
-        const data = await  contract.methods.mintTier3(2).send({from:await getAccount(), value:'540000000000000000'});
+        const data = await  contract.methods.mintTier3(2).send({from:await getAccount(), value:val});
         return data;
     } catch (error) {
         console.log(error)
@@ -72,6 +72,7 @@ export const MintTier1MX =async(amount)=>{
     try {
         const val = await WebUtils(50/amount)
         const allow = await IsApprove();
+        console.log("allow for 1", allow)
         if(Number(allow) <= 0 ){
             await Approve();
         }
@@ -179,7 +180,8 @@ export const NFTBal = async()=>{
 export const Metafxbal = async()=>{
     try {
         const contract = await getContract(TierNFT, tokenaddress);
-        const data = await contract.methods.balanceOf(await getAccount()).call();;
+        const data = await contract.methods.balanceOf(await getAccount()).call();
+        console.log("Bal",data)
         return data;
     } catch (error) {
         console.log(error) 

@@ -401,6 +401,19 @@ export const TierNFT = [
   {
     inputs: [
       {
+        internalType: "address",
+        name: "_token",
+        type: "address",
+      },
+    ],
+    name: "updatePaymentToken",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
         internalType: "uint256",
         name: "_newPrice",
         type: "uint256",
@@ -986,25 +999,25 @@ export const TierNFT = [
     type: "function",
   },
   {
-    inputs: [
-      { internalType: "address", name: "spender", type: "address" },
-      { internalType: "uint256", name: "amount", type: "uint256" },
-    ],
-    name: "approve",
-    outputs: [{ internalType: "bool", name: "", type: "bool" }],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "holder", type: "address" },
-      { internalType: "address", name: "spender", type: "address" },
-    ],
-    name: "allowance",
-    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-    stateMutability: "view",
-    type: "function",
-  },
+        inputs: [
+          { internalType: "address", name: "spender", type: "address" },
+          { internalType: "uint256", name: "amount", type: "uint256" },
+        ],
+        name: "approve",
+        outputs: [{ internalType: "bool", name: "", type: "bool" }],
+        stateMutability: "nonpayable",
+        type: "function",
+      },
+      {
+        inputs: [
+          { internalType: "address", name: "holder", type: "address" },
+          { internalType: "address", name: "spender", type: "address" },
+        ],
+        name: "allowance",
+        outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+        stateMutability: "view",
+        type: "function",
+      }
 ];
 
 // {

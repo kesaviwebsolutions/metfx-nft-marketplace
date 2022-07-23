@@ -21,7 +21,7 @@ export const getChain = async () => {
 export const CheckChain = async () => {
   let web3 = getWeb3();
   const chainId = await web3.eth.getChainId()
-  if (parseInt(chainId) == 3) {
+  if (parseInt(chainId) == 56) {
     return true
   } else {
     return false

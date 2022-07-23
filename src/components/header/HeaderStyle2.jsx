@@ -9,6 +9,7 @@ import BNB from "./../../assets/images/logo/bnb.png";
 import MFX from "./../../assets/images/logo/metfx.png"
 import { getAccount, CheckChain} from "../../Web3/Web3Methods";
 import { VscDebugDisconnect } from "react-icons/vsc"
+import { getWeb3 } from "../../Web3/Wallets";
 import {RiSwitchFill} from "react-icons/ri"
 import { DisconnectWallet, SelectWallet } from "../../Web3/Wallets";
 import "./headerStyle.css"
@@ -52,7 +53,7 @@ const HeaderStyle2 = () => {
       }
       const id = await CheckChain();
       if(!id){
-        alert("Wrong Network");
+        alert("Please Switch to Binance Smart Chain");
       }
     };
     init();
@@ -68,11 +69,13 @@ const HeaderStyle2 = () => {
   setInterval(async()=>{
       try {
         const id = await CheckChain();
-        console.log(id)
+        const web3 = getWeb3();
+        const to = web3.utils.toHex(56);
+        // console.log(to)
         if(!id){
           await window.ethereum.request({
             method: 'wallet_switchEthereumChain',
-            params: [{ chainId: '0x3' }],
+            params: [{ chainId: to }],
           });
         }
       } catch (error) {

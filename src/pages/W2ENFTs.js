@@ -49,6 +49,24 @@ export default function W2ENFTs() {
     }
     init();
     apicall();
+
+    setInterval(async()=>{
+      try {
+        const data1 = await isWhitelisted1();
+        const data2 = await isWhitelisted2();
+        const data3 = await isWhitelisted3();
+        setWhite1(data1);
+        setWhite2(data2);
+        setWhite3(data3);
+        const tier1 = await totalNFT1(0);
+        const tier2 = await totalNFT1(1);
+        const tier3 = await totalNFT1(2);
+        setTotalSupply({one:tier1,two:tier2,three:tier3})
+        await apicall();
+      } catch (error) {
+        console.log(error)
+      }
+    },10000)
   }, [])
 
   const apicall =async()=>{
