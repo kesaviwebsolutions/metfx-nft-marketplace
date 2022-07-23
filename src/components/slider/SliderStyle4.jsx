@@ -33,6 +33,7 @@ const SliderStyle4 = () => {
               <p className="sub-heading mt-19 mb-40">
                 This phase is open only to investors who participated in Seed Sale/Private Sale/Fairlaunch Presale. Visit our offical TG to know more.
               </p>
+              <p className="sub-heading mt-25 mb-40 bg-danger p-3">**One wallet can only mint once and hold 01 NFT for any one tier!**</p>
               <div className="flat-bt-slider flex style2 d-block m-auto">
                 {/* <Link
                   to="/explore-01"
