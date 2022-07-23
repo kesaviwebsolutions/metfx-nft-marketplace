@@ -3,7 +3,7 @@ import tier1 from "../assets/videos/watch-2-earn-bronze.mp4";
 import tier2 from "../assets/videos/watch-2-earn-silver.mp4";
 import tier3 from "../assets/videos/watch-2-earn-gold.mp4";
 import "./w2enft.css";
-import { MintTier1, MintTier2, MintTier3, SaleActive, isWhitelisted1, isWhitelisted2, isWhitelisted3, NFTBal, MintTier1MX, MintTier2MX, MintTier3MX, Metafxbal, totalNFT1 } from "../Web3/ContractMethods";
+import { MintTier1, MintTier2, MintTier3, SaleActive, isWhitelisted1, isWhitelisted2, isWhitelisted3, NFTBal, MintTier1MX, MintTier2MX, MintTier3MX, Metafxbal, totalNFT1, NFTOWner } from "../Web3/ContractMethods";
 import { getBal } from "../Web3/Web3Methods";
 import toast, { Toaster } from 'react-hot-toast';
 import axios from "axios";
@@ -33,7 +33,7 @@ export default function W2ENFTs() {
       const mfxtoken = await Metafxbal();
       const sale = await SaleActive();
       const bal = await getBal();
-      const nftbala = await NFTBal();
+      const nftbala = await NFTOWner();
       const tier1 = await totalNFT1(0);
       const tier2 = await totalNFT1(1);
       const tier3 = await totalNFT1(2);
@@ -45,7 +45,8 @@ export default function W2ENFTs() {
       setWhite2(data2);
       setWhite3(data3);
       setMETFXToken(mfxtoken)
-      console.log("Metfx balance",mfxtoken)
+      console.log("Metfx balance",nftbala)
+      // console.log(data1,data2,data3)
     }
     init();
     apicall();
@@ -62,6 +63,7 @@ export default function W2ENFTs() {
         const tier2 = await totalNFT1(1);
         const tier3 = await totalNFT1(2);
         setTotalSupply({one:tier1,two:tier2,three:tier3})
+       
         await apicall();
       } catch (error) {
         console.log(error)
@@ -213,6 +215,10 @@ export default function W2ENFTs() {
           <div className="col-lg-4">
             <video src={tier3} autoPlay muted loop className="w-100"></video>
             <div className="d-flex justify-content-around mb-4">
+              <p>Tier 1</p>
+              <p>$50</p>
+            </div>
+            <div className="d-flex justify-content-around mb-4">
               <p>Total Minted</p>
               <p>{totalsupply.one}</p>
             </div>
@@ -223,11 +229,15 @@ export default function W2ENFTs() {
               }}
         
             >
-              {window.address ? (white1 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 1') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
+              {window.address ? (white1 ? (nftbalance <= 1999999 ? 'Minted' : 'Mint Tier 1') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
             </button>
           </div>
           <div className="col-lg-4">
             <video src={tier2} autoPlay muted loop className="w-100"></video>
+            <div className="d-flex justify-content-around mb-4">
+              <p>Tier 2</p>
+              <p>$100</p>
+            </div>
             <div className="d-flex justify-content-around mb-4">
               <p>Total Minted</p>
               <p>{totalsupply.two}</p>
@@ -239,11 +249,15 @@ export default function W2ENFTs() {
               }}
               
             >
-               {window.address ? (white2 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 2') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
+               {window.address ? (white2 ? (nftbalance > 1999999 && nftbalance <= 2999999 ? 'Minted' : 'Mint Tier 2') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
             </button>
           </div>
           <div className="col-lg-4">
             <video src={tier1} autoPlay muted loop className="w-100"></video>
+            <div className="d-flex justify-content-around mb-4">
+              <p>Tier 3</p>
+              <p>$150</p>
+            </div>
             <div className="d-flex justify-content-around mb-4">
               <p>Total Minted</p>
               <p>{totalsupply.three}</p>
@@ -255,11 +269,11 @@ export default function W2ENFTs() {
               }}
             
             >
-               {window.address ? (white3 ? (nftbalance > 0 ? 'Minted' : 'Mint Tier 3') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
+               {window.address ? (white3 ? (nftbalance > 2999999 && nftbalance <= 3999999 ? 'Minted' : 'Mint Tier 3') : "You are not whitelisted for this tier!") : 'Connect Wallet'}
             </button>
           </div>
         </div>
-        {nftbalance > 0 && white1 ? (
+        {nftbalance <= 1999999 && white1 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -272,7 +286,7 @@ export default function W2ENFTs() {
                 }}
               >
                 <strong style={{ fontSize: "20px" }}>
-                  Congratulations! You are BRONZE member.
+                  Congratulations! You are Tier 1 member.
                 </strong>
               </div>
               <a href="https://play.metfx.io" target='_blank'><button className="mintBtn col-lg-4">
@@ -283,7 +297,7 @@ export default function W2ENFTs() {
         ) : (
           ""
         )}
-        {nftbalance > 0 && white2 ? (
+        {nftbalance > 1999999 && nftbalance <= 2999999 && white2 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -296,7 +310,7 @@ export default function W2ENFTs() {
                 }}
               >
                 <strong style={{ fontSize: "20px" }}>
-                Congratulations! You are SILVER member.
+                Congratulations! You are Tier 2 member.
                 </strong>
               </div>
               <a href="#" target='_blank'><button className="mintBtn col-lg-4">
@@ -307,7 +321,7 @@ export default function W2ENFTs() {
         ) : (
           ""
         )}
-        {nftbalance > 0 && white3 ? (
+        {nftbalance > 2999999 && nftbalance <= 3999999 && white3 ? (
           <div className="row">
             <div className="col-lg-12">
               <div
@@ -320,7 +334,7 @@ export default function W2ENFTs() {
                 }}
               >
                 <strong style={{ fontSize: "20px" }}>
-                Congratulations! You are GOLD member.
+                Congratulations! You are Tier 3 member.
                 </strong>
                 <a href="#" target='_blank'><button className="mintBtn col-lg-4">
                   Open Streaming App 

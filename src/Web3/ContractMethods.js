@@ -143,6 +143,7 @@ export const isWhitelisted1 = async()=>{
     try {
         const contract = await getContract(TierNFT, address);
         const data = await  contract.methods._whitelistedForTier1(await getAccount()).call();
+        console.log("data",data)
         return data;
     } catch (error) {
         console.log(error)
@@ -152,6 +153,7 @@ export const isWhitelisted2 = async()=>{
   try {
     const contract = await getContract(TierNFT, address);
     const data = await  contract.methods._whitelistedForTier2(await getAccount()).call();
+    console.log("data",data)
     return data;
   } catch (error) {
     console.log(error)
@@ -161,6 +163,7 @@ export const isWhitelisted3 = async()=>{
     try {
         const contract = await getContract(TierNFT, address);
         const data = await  contract.methods._whitelistedForTier3(await getAccount()).call();
+        console.log("data",data)
         return data;
     } catch (error) {
         console.log(error)
@@ -175,7 +178,16 @@ export const NFTBal = async()=>{
     } catch (error) {
       console.log(error)
     }
-  }
+}
+export const NFTOWner = async()=>{
+    try {
+      const contract = await getContract(TierNFT, address);
+      const data = await  contract.methods.ownedTokenId(await getAccount()).call();
+      return data;
+    } catch (error) {
+      console.log(error)
+    }
+}
 
 export const Metafxbal = async()=>{
     try {
