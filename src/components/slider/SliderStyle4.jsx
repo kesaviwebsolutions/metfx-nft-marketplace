@@ -12,6 +12,7 @@ import img3 from "../../assets/images/box-item/img_item8.jpg";
 import shape1 from "../../assets/images/backgroup-secsion/bg-gradient1.png";
 import shape2 from "../../assets/images/backgroup-secsion/bg-gradient2.png";
 import shape3 from "../../assets/images/backgroup-secsion/bg-gradient3.png";
+import w2edoc from "../../assets/docs/Watch-2-Earn.pdf";
 import "./sliderStyle.css";
 
 const SliderStyle4 = () => {
@@ -30,28 +31,22 @@ const SliderStyle4 = () => {
                 <span className="tf-text s1">EARN WHILE ENJOYING YOUR FAVOURITE CONTENT</span>
               </h1>
               <p className="sub-heading mt-19 mb-40">
-                This phase is open only to investors who participated in Seed Sale/Private Sale/Fairlaunch Presale. Visit our offical TG to know more. Follow the instructions given below before minting:
+                This phase is open only to investors who participated in Seed Sale/Private Sale/Fairlaunch Presale. Visit our offical TG to know more.
               </p>
-              <ul>
-                <li>You need to be whitelisted for a particular tier to be able to mint MetFX W2E NFT</li>
-                <li>One wallet can only mint and hold 01 MetFX W2E NFT</li>
-                <li>Tier 1 NFT holders can earn $28.80 every 100 Watch Hours</li>
-                <li><a href="../../assets/docs/W2E.pdf">Click here to learn more</a></li>
-              </ul>
-              {/* <div className="flat-bt-slider flex style2 d-block m-auto">
-                <Link
+              <div className="flat-bt-slider flex style2 d-block m-auto">
+                {/* <Link
                   to="/explore-01"
                   className="sc-button header-slider style style-1 rocket fl-button pri-1"
                 >
                   <span>Explore</span>
-                </Link>
-                <Link
-                  to="/create-item"
+                </Link> */}
+                <a
+                  href={w2edoc}
                   className="sc-button header-slider style style-1 note fl-button pri-1"
                 >
-                  <span>Create</span>
-                </Link>
-              </div> */}
+                  <span>Read W2E Document</span>
+                </a>
+              </div>
             </div>
             {/* <Swiper
                                 modules={[ Autoplay ]}
