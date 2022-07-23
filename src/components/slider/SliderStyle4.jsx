@@ -30,8 +30,14 @@ const SliderStyle4 = () => {
                 <span className="tf-text s1">EARN WHILE ENJOYING YOUR FAVOURITE CONTENT</span>
               </h1>
               <p className="sub-heading mt-19 mb-40">
-                This phase is open only to investors who participated in Seed Sale/Private Sale/Fairlaunch Presale. Visit our offical TG to know more.
+                This phase is open only to investors who participated in Seed Sale/Private Sale/Fairlaunch Presale. Visit our offical TG to know more. Follow the instructions given below before minting:
               </p>
+              <ul>
+                <li>You need to be whitelisted for a particular tier to be able to mint MetFX W2E NFT</li>
+                <li>One wallet can only mint and hold 01 MetFX W2E NFT</li>
+                <li>Tier 1 NFT holders can earn $28.80 every 100 Watch Hours</li>
+                <li><a href="../../assets/docs/W2E.pdf">Click here to learn more</a></li>
+              </ul>
               {/* <div className="flat-bt-slider flex style2 d-block m-auto">
                 <Link
                   to="/explore-01"
