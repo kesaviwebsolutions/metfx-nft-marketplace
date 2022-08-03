@@ -2,7 +2,9 @@
 import { TierNFT } from "./NFTABI"
 import { getAccount, getContract, WebUtils } from "./Web3Methods"
 const address = "0x5E79Ef721f49D583e0D3E21673d6aA08dd66DfAF"//" Ropsten 0x7dAA7816780709ab4930C4E0fF9555f1e0cd2c8B"
-const tokenaddress = "0x6266a18F1605DA94e8317232ffa634C74646ac40"//" MFX on Ropsten 0x84CaE20B42bE7f0C580F7B0a7E8663fd4Bea7D81"
+const tokenaddress = "0x6266a18F1605DA94e8317232ffa634C74646ac40"//" MFX on Ropsten 0x84CaE20B42bE7f0C580F7B0a7E8663fd4Bea7D81" // Main net 0x6266a18F1605DA94e8317232ffa634C74646ac40
+
+
 
 export const Whitelistfor1 =async()=>{
     try {
@@ -10,7 +12,7 @@ export const Whitelistfor1 =async()=>{
         const data = await contract.methods.bulkWhitelistTier1([await getAccount()],true).send({from:await getAccount()});
         return data;
     } catch (error) {
-        console.log(error) 
+        // console.log(error) 
     }
 }
 
@@ -20,7 +22,7 @@ export const Whitelistfor2 =async()=>{
         const data = await contract.methods.bulkWhitelistTier2([await getAccount()],true).send({from:await getAccount()});
         return data;
     } catch (error) {
-        console.log(error)
+        // console.log(error)
     }
 }
 
@@ -30,7 +32,7 @@ export const Whitelistfor3 =async()=>{
     const data = await contract.methods.bulkWhitelistTier3([await getAccount()],true).send({from:await getAccount()});
     return data;
   } catch (error) {
-    console.log(error)
+    // console.log(error)
   }
 }
 
@@ -76,6 +78,7 @@ export const MintTier1MX =async(amount)=>{
         if(Number(allow) <= 0 ){
             await Approve();
         }
+        console.log(val)
         const contract = await getContract(TierNFT, address);
         const data = await contract.methods.mintMFX(0,val).send({from:await getAccount()});
         return data;
@@ -94,6 +97,7 @@ export const MintTier2MX =async(amount)=>{
         if(Number(allow) <= 0 ){
             await Approve();
         }
+        console.log(val)
         const contract = await getContract(TierNFT, address);
         const data = await  contract.methods.mintMFX(1,val).send({from:await getAccount()});
         return data;
@@ -110,6 +114,7 @@ export const MintTier3MX =async(amount)=>{
         if(Number(allow) <= 0 ){
             await Approve();
         }
+        console.log(val)
         const contract = await getContract(TierNFT, address);
         const data = await  contract.methods.mintMFX(2,val).send({from:await getAccount()});
         return data;
@@ -121,7 +126,7 @@ export const MintTier3MX =async(amount)=>{
 export const totalNFT1 =async(id)=>{
     try {
         const contract = await getContract(TierNFT, address);
-        const data = await contract.methods.tierTotalSupply(id).call();
+        const data = await contract.methods.tiers(id).call();
         return data;
     } catch (error) {
         console.log(error)
@@ -146,7 +151,7 @@ export const isWhitelisted1 = async()=>{
         console.log("data",data)
         return data;
     } catch (error) {
-        console.log(error)
+        // console.log(error)
     }
 }
 export const isWhitelisted2 = async()=>{
@@ -156,7 +161,7 @@ export const isWhitelisted2 = async()=>{
     console.log("data",data)
     return data;
   } catch (error) {
-    console.log(error)
+    // console.log(error)
   }
 }
 export const isWhitelisted3 = async()=>{
@@ -166,14 +171,14 @@ export const isWhitelisted3 = async()=>{
         console.log("data",data)
         return data;
     } catch (error) {
-        console.log(error)
+        // console.log(error)
     }
 }
 
 export const NFTBal = async()=>{
     try {
       const contract = await getContract(TierNFT, address);
-      const data = await  contract.methods.balanceOf(await getAccount()).call();
+      const data = await contract.methods.balanceOf(await getAccount()).call();
       return data;
     } catch (error) {
       console.log(error)

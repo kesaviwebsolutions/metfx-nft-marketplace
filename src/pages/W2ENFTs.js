@@ -27,9 +27,6 @@ export default function W2ENFTs() {
 
   useEffect(() => {
     const init =async()=>{
-      const data1 = await isWhitelisted1();
-      const data2 = await isWhitelisted2();
-      const data3 = await isWhitelisted3();
       const mfxtoken = await Metafxbal();
       const sale = await SaleActive();
       const bal = await getBal();
@@ -37,33 +34,26 @@ export default function W2ENFTs() {
       const tier1 = await totalNFT1(0);
       const tier2 = await totalNFT1(1);
       const tier3 = await totalNFT1(2);
-      setTotalSupply({one:tier1,two:tier2,three:tier3})
+      console.log(tier1)
+      setTotalSupply({one:tier1[2],two:tier2[2],three:tier3[2]})
       setNFTbalance(nftbala)
       setBalance(bal)
       setSateactive(sale);
-      setWhite1(data1);
-      setWhite2(data2);
-      setWhite3(data3);
+     
       setMETFXToken(mfxtoken)
       console.log("Metfx balance",nftbala)
-      // console.log(data1,data2,data3)
     }
     init();
     apicall();
 
     setInterval(async()=>{
       try {
-        const data1 = await isWhitelisted1();
-        const data2 = await isWhitelisted2();
-        const data3 = await isWhitelisted3();
-        setWhite1(data1);
-        setWhite2(data2);
-        setWhite3(data3);
         const tier1 = await totalNFT1(0);
         const tier2 = await totalNFT1(1);
         const tier3 = await totalNFT1(2);
-        setTotalSupply({one:tier1,two:tier2,three:tier3})
-       
+        setTotalSupply({one:tier1[2],two:tier2[2],three:tier3[2]})
+        const nftbala = await NFTOWner();
+        setNFTbalance(nftbala)
         await apicall();
       } catch (error) {
         console.log(error)
@@ -80,7 +70,7 @@ export default function W2ENFTs() {
     ])
 
     axios.get("https://api.pancakeswap.info/api/v2/tokens/0x6266a18F1605DA94e8317232ffa634C74646ac40").then((res)=>{
-      console.log(res)
+      // console.log(res)
       setMETFX(Number(res.data.data.price).toFixed(5))
     }).catch((e)=>[
       console.log(e)
@@ -88,21 +78,15 @@ export default function W2ENFTs() {
   }
   
   const init2 =async()=>{
-    const data1 = await isWhitelisted1();
-    const data2 = await isWhitelisted2();
-    const data3 = await isWhitelisted3();
     const mfxtoken = await Metafxbal();
     const sale = await SaleActive();
     const bal = await getBal();
-    const nftbala = await NFTBal();
+    const nftbala = await NFTOWner();
     setNFTbalance(nftbala)
     setBalance(bal)
     setSateactive(sale);
-    setWhite1(data1);
-    setWhite2(data2);
-    setWhite3(data3);
     setMETFXToken(mfxtoken)
-    console.log("Metfx balance",mfxtoken)
+    // console.log("Metfx balance",mfxtoken)
   }
 
   const mint1 =async()=>{
@@ -110,10 +94,7 @@ export default function W2ENFTs() {
       error("Sale not Active")
       return true
     }
-    if(!white1){
-      error("Not WhiteListed for this tier")
-      return true
-    }
+  
     if(window.currceny == 0){
       if(metfxtoken < 50){
         error("Not enough MFX balance")
@@ -143,10 +124,7 @@ export default function W2ENFTs() {
       error("Sale not Active")
       return true
     }
-    if(!white2){
-      error("Not WhiteListed for this tier")
-      return true
-    }
+ 
    
     if(window.currceny == 0){
       if(metfxtoken < 50){
@@ -178,10 +156,7 @@ export default function W2ENFTs() {
       error("Sale not Active")
       return true
     }
-    if(!white3){
-      error("Not WhiteListed for this tier")
-      return true
-    }
+  
   
     if(window.currceny == 0 ){
       if(metfxtoken < 50){
