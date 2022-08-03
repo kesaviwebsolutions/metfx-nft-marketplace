@@ -89,60 +89,6 @@ export const TierNFT = [
     type: "function",
   },
   {
-    inputs: [
-      {
-        internalType: "address[]",
-        name: "accounts",
-        type: "address[]",
-      },
-      {
-        internalType: "bool",
-        name: "state",
-        type: "bool",
-      },
-    ],
-    name: "bulkWhitelistTier1",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address[]",
-        name: "accounts",
-        type: "address[]",
-      },
-      {
-        internalType: "bool",
-        name: "state",
-        type: "bool",
-      },
-    ],
-    name: "bulkWhitelistTier2",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address[]",
-        name: "accounts",
-        type: "address[]",
-      },
-      {
-        internalType: "bool",
-        name: "state",
-        type: "bool",
-      },
-    ],
-    name: "bulkWhitelistTier3",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
     inputs: [],
     name: "flipSaleState",
     outputs: [],
@@ -156,26 +102,13 @@ export const TierNFT = [
         name: "tier",
         type: "uint256",
       },
-    ],
-    name: "mintTier1",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "tier",
-        type: "uint256",
-      },
       {
         internalType: "uint256",
         name: "weiAmount",
         type: "uint256",
       },
     ],
-    name: "mintTier1MFX",
+    name: "mintMFX",
     outputs: [],
     stateMutability: "payable",
     type: "function",
@@ -188,7 +121,7 @@ export const TierNFT = [
         type: "uint256",
       },
     ],
-    name: "mintTier2",
+    name: "mintNFT",
     outputs: [],
     stateMutability: "payable",
     type: "function",
@@ -201,45 +134,14 @@ export const TierNFT = [
         type: "uint256",
       },
       {
-        internalType: "uint256",
-        name: "weiAmount",
-        type: "uint256",
+        internalType: "address",
+        name: "to",
+        type: "address",
       },
     ],
-    name: "mintTier2MFX",
+    name: "mintNFTAdmin",
     outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "tier",
-        type: "uint256",
-      },
-    ],
-    name: "mintTier3",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "tier",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "weiAmount",
-        type: "uint256",
-      },
-    ],
-    name: "mintTier3MFX",
-    outputs: [],
-    stateMutability: "payable",
+    stateMutability: "nonpayable",
     type: "function",
   },
   {
@@ -415,12 +317,7 @@ export const TierNFT = [
     inputs: [
       {
         internalType: "uint256",
-        name: "_newPrice",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_mfxPrice",
+        name: "tier",
         type: "uint256",
       },
       {
@@ -439,7 +336,7 @@ export const TierNFT = [
         type: "string",
       },
     ],
-    name: "updateTier1",
+    name: "updateTierDetails",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -448,6 +345,11 @@ export const TierNFT = [
     inputs: [
       {
         internalType: "uint256",
+        name: "tier",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
         name: "_newPrice",
         type: "uint256",
       },
@@ -456,23 +358,8 @@ export const TierNFT = [
         name: "_mfxPrice",
         type: "uint256",
       },
-      {
-        internalType: "uint256",
-        name: "_newMaxSupply",
-        type: "uint256",
-      },
-      {
-        internalType: "uint8",
-        name: "_perWalletLimit",
-        type: "uint8",
-      },
-      {
-        internalType: "string",
-        name: "_newUri",
-        type: "string",
-      },
     ],
-    name: "updateTier2",
+    name: "updateTierPrice",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -480,32 +367,17 @@ export const TierNFT = [
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "_newPrice",
-        type: "uint256",
+        internalType: "address",
+        name: "wallet",
+        type: "address",
       },
       {
-        internalType: "uint256",
-        name: "_mfxPrice",
-        type: "uint256",
-      },
-      {
-        internalType: "uint256",
-        name: "_newMaxSupply",
-        type: "uint256",
-      },
-      {
-        internalType: "uint8",
-        name: "_perWalletLimit",
-        type: "uint8",
-      },
-      {
-        internalType: "string",
-        name: "_newUri",
-        type: "string",
+        internalType: "bool",
+        name: "state",
+        type: "bool",
       },
     ],
-    name: "updateTier3",
+    name: "whitelistAdmin",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -543,45 +415,7 @@ export const TierNFT = [
         type: "address",
       },
     ],
-    name: "_whitelistedForTier1",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    name: "_whitelistedForTier2",
-    outputs: [
-      {
-        internalType: "bool",
-        name: "",
-        type: "bool",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
-    ],
-    name: "_whitelistedForTier3",
+    name: "_whitelistedAdmin",
     outputs: [
       {
         internalType: "bool",
@@ -662,6 +496,19 @@ export const TierNFT = [
         internalType: "address",
         name: "",
         type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "mfxRaised",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
     stateMutability: "view",
@@ -832,44 +679,6 @@ export const TierNFT = [
     inputs: [
       {
         internalType: "uint256",
-        name: "tier",
-        type: "uint256",
-      },
-    ],
-    name: "tierMaxSupply",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
-        name: "tier",
-        type: "uint256",
-      },
-    ],
-    name: "tierPrice",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
         name: "",
         type: "uint256",
       },
@@ -919,25 +728,6 @@ export const TierNFT = [
     inputs: [
       {
         internalType: "uint256",
-        name: "tier",
-        type: "uint256",
-      },
-    ],
-    name: "tierTotalSupply",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint256",
         name: "tokenId",
         type: "uint256",
       },
@@ -973,32 +763,6 @@ export const TierNFT = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "totalMaxSupply",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
-    inputs: [],
-    name: "weiRaised",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
         inputs: [
           { internalType: "address", name: "spender", type: "address" },
           { internalType: "uint256", name: "amount", type: "uint256" },
@@ -1017,7 +781,7 @@ export const TierNFT = [
         outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
         stateMutability: "view",
         type: "function",
-      }
+      },
 ];
 
 // {

@@ -1,5 +1,5 @@
 {
-    "title": "MFX Tier 1 Membership",
+    "title": "MFX Tier 3 Membership",
     "type": "object",
     "properties": {
         "name": {
@@ -12,7 +12,7 @@
         },
         "nftVideo": {
             "type": "string",
-            "description": "ipfs://bafybeictzrwgelyhiylitw6qc3yxyv4ptl64wncfgrpxvkgrhiy3a64kta/"
+            "description": "ipfs://bafybeigg6k3so7jotcwrxm2owf27haj2okshwlwdeuwqxni4xzgtzvqb5e/"
         }
     }
 }
