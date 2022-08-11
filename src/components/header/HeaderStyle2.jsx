@@ -257,19 +257,19 @@ const HeaderStyle2 = () => {
                     </button>
                   </div>}
 
-                  <div className="sc-btn-top mb-3" id="" style={{marginLeft:'10px'}}>
+                  {/* <div className="sc-btn-top mb-3" id="" style={{marginLeft:'10px'}}>
                     <div className="switch d-flex align-items-center" onClick={handleClickOpen}>
                         {window.currceny == 0 ? <img src={MFX} width={17}/> : <img src={BNB} height={18}/> }
                     </div>
-                  </div>
+                  </div> */}
 
-                  <div>
+                  {/* <div>
                   <Dialog disableEscapeKeyDown open={open} onClose={handleClose}>
                     <DialogTitle>Select Currency</DialogTitle>
                     <DialogContent>
                       <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap' }}>
                         <FormControl sx={{ m: 2, minWidth: 120 }} style={{fontSize:'20px'}}>
-                          {/* <InputLabel htmlFor="demo-dialog-native">{window.currceny}</InputLabel> */}
+                   
                           <NativeSelect
                             id="demo-customized-select-native"
                             style={{fontSize:'12px'}}
@@ -285,7 +285,7 @@ const HeaderStyle2 = () => {
                       <Button onClick={handleClose}>OK</Button>
                     </DialogActions>
                   </Dialog>
-                </div>
+                </div> */}
                 
                 </div>
               </div>
