@@ -45,7 +45,7 @@ const Footer = () => {
     },
     {
       icon: "fab fa-telegram-plane",
-      link: "https://t.me/METFXWORLD",
+      link: "https://t.me/MetFXwatch2earn",
     },
     {
       icon: "fab fa-youtube",
